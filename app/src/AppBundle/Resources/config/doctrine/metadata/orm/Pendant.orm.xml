@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Pendant" table="PENDANT">
+    <indexes>
+      <index name="FK_PENDANT2" columns="ID_CLASSE"/>
+      <index name="FK_PENDANT3" columns="ID_SEMESTRE"/>
+      <index name="IDX_613D94C5A16CB4B6" columns="ID_MODULE"/>
+    </indexes>
+    <id name="idSemestre" association-key="true"/>
+    <id name="idModule" association-key="true"/>
+    <id name="idClasse" association-key="true"/>
+    <one-to-one field="idClasse" target-entity="Classe">
+      <join-columns>
+        <join-column name="ID_CLASSE" referenced-column-name="ID_CLASSE"/>
+      </join-columns>
+    </one-to-one>
+    <one-to-one field="idModule" target-entity="Module">
+      <join-columns>
+        <join-column name="ID_MODULE" referenced-column-name="ID_MODULE"/>
+      </join-columns>
+    </one-to-one>
+    <one-to-one field="idSemestre" target-entity="Semestre">
+      <join-columns>
+        <join-column name="ID_SEMESTRE" referenced-column-name="ID_SEMESTRE"/>
+      </join-columns>
+    </one-to-one>
+  </entity>
+</doctrine-mapping>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Absence" table="ABSENCE">
+    <indexes>
+      <index name="FK_POSSEDE" columns="ID_PERSONNE"/>
+    </indexes>
+    <id name="idAbsence" type="integer" column="ID_ABSENCE">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="datedebutAbsence" type="date" column="DATEDEBUT_ABSENCE" nullable="true"/>
+    <field name="datefinAbsence" type="date" column="DATEFIN_ABSENCE" nullable="true"/>
+    <field name="justificatif" type="boolean" column="JUSTIFICATIF" nullable="true"/>
+    <field name="motif" type="string" column="MOTIF" length="255" nullable="true"/>
+    <many-to-one field="idPersonne" target-entity="Personne">
+      <join-columns>
+        <join-column name="ID_PERSONNE" referenced-column-name="ID_PERSONNE"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

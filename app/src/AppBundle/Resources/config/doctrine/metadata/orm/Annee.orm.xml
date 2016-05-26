@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Annee" table="ANNEE">
+    <id name="idAnnee" type="integer" column="ID_ANNEE">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="libelleAnnee" type="string" column="LIBELLE_ANNEE" length="20" nullable="true"/>
+    <many-to-many field="idClasse" target-entity="Classe" inversed-by="idAnnee">
+      <join-table name="derouler">
+        <join-columns>
+          <join-column name="ID_ANNEE" referenced-column-name="ID_ANNEE"/>
+        </join-columns>
+        <inverse-join-columns>
+          <join-column name="ID_CLASSE" referenced-column-name="ID_CLASSE"/>
+        </inverse-join-columns>
+      </join-table>
+    </many-to-many>
+  </entity>
+</doctrine-mapping>
