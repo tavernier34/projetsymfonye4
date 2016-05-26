@@ -60,4 +60,129 @@ class Absence
     private $idPersonne;
 
 
+
+    /**
+     * Get idAbsence
+     *
+     * @return integer 
+     */
+    public function getIdAbsence()
+    {
+        return $this->idAbsence;
+    }
+
+    /**
+     * Set datedebutAbsence
+     *
+     * @param \DateTime $datedebutAbsence
+     * @return Absence
+     */
+    public function setDatedebutAbsence($datedebutAbsence)
+    {
+        $this->datedebutAbsence = $datedebutAbsence;
+
+        return $this;
+    }
+
+    /**
+     * Get datedebutAbsence
+     *
+     * @return \DateTime 
+     */
+    public function getDatedebutAbsence()
+    {
+        return $this->datedebutAbsence;
+    }
+
+    /**
+     * Set datefinAbsence
+     *
+     * @param \DateTime $datefinAbsence
+     * @return Absence
+     */
+    public function setDatefinAbsence($datefinAbsence)
+    {
+        $this->datefinAbsence = $datefinAbsence;
+
+        return $this;
+    }
+
+    /**
+     * Get datefinAbsence
+     *
+     * @return \DateTime 
+     */
+    public function getDatefinAbsence()
+    {
+        return $this->datefinAbsence;
+    }
+
+    /**
+     * Set justificatif
+     *
+     * @param boolean $justificatif
+     * @return Absence
+     */
+    public function setJustificatif($justificatif)
+    {
+        $this->justificatif = $justificatif;
+
+        return $this;
+    }
+
+    /**
+     * Get justificatif
+     *
+     * @return boolean 
+     */
+    public function getJustificatif()
+    {
+        return $this->justificatif;
+    }
+
+    /**
+     * Set motif
+     *
+     * @param string $motif
+     * @return Absence
+     */
+    public function setMotif($motif)
+    {
+        $this->motif = $motif;
+
+        return $this;
+    }
+
+    /**
+     * Get motif
+     *
+     * @return string 
+     */
+    public function getMotif()
+    {
+        return $this->motif;
+    }
+
+    /**
+     * Set idPersonne
+     *
+     * @param \AppBundle\Entity\Personne $idPersonne
+     * @return Absence
+     */
+    public function setIdPersonne(\AppBundle\Entity\Personne $idPersonne = null)
+    {
+        $this->idPersonne = $idPersonne;
+
+        return $this;
+    }
+
+    /**
+     * Get idPersonne
+     *
+     * @return \AppBundle\Entity\Personne 
+     */
+    public function getIdPersonne()
+    {
+        return $this->idPersonne;
+    }
 }

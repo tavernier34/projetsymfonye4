@@ -49,4 +49,73 @@ class Pendant
     private $idClasse;
 
 
+
+    /**
+     * Set idSemestre
+     *
+     * @param \AppBundle\Entity\Semestre $idSemestre
+     * @return Pendant
+     */
+    public function setIdSemestre(\AppBundle\Entity\Semestre $idSemestre)
+    {
+        $this->idSemestre = $idSemestre;
+
+        return $this;
+    }
+
+    /**
+     * Get idSemestre
+     *
+     * @return \AppBundle\Entity\Semestre 
+     */
+    public function getIdSemestre()
+    {
+        return $this->idSemestre;
+    }
+
+    /**
+     * Set idModule
+     *
+     * @param \AppBundle\Entity\Module $idModule
+     * @return Pendant
+     */
+    public function setIdModule(\AppBundle\Entity\Module $idModule)
+    {
+        $this->idModule = $idModule;
+
+        return $this;
+    }
+
+    /**
+     * Get idModule
+     *
+     * @return \AppBundle\Entity\Module 
+     */
+    public function getIdModule()
+    {
+        return $this->idModule;
+    }
+
+    /**
+     * Set idClasse
+     *
+     * @param \AppBundle\Entity\Classe $idClasse
+     * @return Pendant
+     */
+    public function setIdClasse(\AppBundle\Entity\Classe $idClasse)
+    {
+        $this->idClasse = $idClasse;
+
+        return $this;
+    }
+
+    /**
+     * Get idClasse
+     *
+     * @return \AppBundle\Entity\Classe 
+     */
+    public function getIdClasse()
+    {
+        return $this->idClasse;
+    }
 }
