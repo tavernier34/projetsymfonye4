@@ -6,9 +6,14 @@
       <index name="FK_PENDANT3" columns="ID_SEMESTRE"/>
       <index name="IDX_613D94C5A16CB4B6" columns="ID_MODULE"/>
     </indexes>
-    <id name="idSemestre" association-key="true"/>
     <id name="idModule" association-key="true"/>
     <id name="idClasse" association-key="true"/>
+    <id name="idSemestre" association-key="true"/>
+    <one-to-one field="idSemestre" target-entity="Semestre">
+      <join-columns>
+        <join-column name="ID_SEMESTRE" referenced-column-name="ID_SEMESTRE"/>
+      </join-columns>
+    </one-to-one>
     <one-to-one field="idClasse" target-entity="Classe">
       <join-columns>
         <join-column name="ID_CLASSE" referenced-column-name="ID_CLASSE"/>
@@ -17,11 +22,6 @@
     <one-to-one field="idModule" target-entity="Module">
       <join-columns>
         <join-column name="ID_MODULE" referenced-column-name="ID_MODULE"/>
-      </join-columns>
-    </one-to-one>
-    <one-to-one field="idSemestre" target-entity="Semestre">
-      <join-columns>
-        <join-column name="ID_SEMESTRE" referenced-column-name="ID_SEMESTRE"/>
       </join-columns>
     </one-to-one>
   </entity>

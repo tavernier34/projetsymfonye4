@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
-  <entity name="Classe" table="CLASSE">
-    <id name="idClasse" type="integer" column="ID_CLASSE">
-      <generator strategy="IDENTITY"/>
-    </id>
-    <field name="libelleClasse" type="string" column="LIBELLE_CLASSE" length="20" nullable="true"/>
+  <entity name="Deroule" table="DEROULE">
+    <id name="idClasse" type="integer" column="ID_CLASSE"/>
+    <id name="idAnnee" type="integer" column="ID_ANNEE"/>
   </entity>
 </doctrine-mapping>

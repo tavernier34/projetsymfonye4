@@ -5,28 +5,30 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Classe
+ * Deroule
  *
- * @ORM\Table(name="CLASSE")
+ * @ORM\Table(name="DEROULE")
  * @ORM\Entity
  */
-class Classe
+class Deroule
 {
     /**
      * @var integer
      *
      * @ORM\Column(name="ID_CLASSE", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="NONE")
      */
     private $idClasse;
 
     /**
-     * @var string
+     * @var integer
      *
-     * @ORM\Column(name="LIBELLE_CLASSE", type="string", length=20, nullable=true)
+     * @ORM\Column(name="ID_ANNEE", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
      */
-    private $libelleClasse;
+    private $idAnnee;
 
 
 }

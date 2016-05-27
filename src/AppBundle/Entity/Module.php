@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Module
  *
  * @ORM\Table(name="MODULE")
- * @ORM\Entity(repositoryClass="AppBundle\Entity\ModuleRepository")
+ * @ORM\Entity
  */
 class Module
 {
@@ -24,7 +24,7 @@ class Module
     /**
      * @var string
      *
-     * @ORM\Column(name="NOM_MODULE", type="string", length=20, nullable=true)
+     * @ORM\Column(name="NOM_MODULE", type="string", length=30, nullable=true)
      */
     private $nomModule;
 
@@ -50,93 +50,4 @@ class Module
         $this->idProfesseur = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
-
-    /**
-     * Get idModule
-     *
-     * @return integer 
-     */
-    public function getIdModule()
-    {
-        return $this->idModule;
-    }
-
-    /**
-     * Set nomModule
-     *
-     * @param string $nomModule
-     * @return Module
-     */
-    public function setNomModule($nomModule)
-    {
-        $this->nomModule = $nomModule;
-
-        return $this;
-    }
-
-    /**
-     * Get nomModule
-     *
-     * @return string 
-     */
-    public function getNomModule()
-    {
-        return $this->nomModule;
-    }
-
-    /**
-     * Set typeModule
-     *
-     * @param string $typeModule
-     * @return Module
-     */
-    public function setTypeModule($typeModule)
-    {
-        $this->typeModule = $typeModule;
-
-        return $this;
-    }
-
-    /**
-     * Get typeModule
-     *
-     * @return string 
-     */
-    public function getTypeModule()
-    {
-        return $this->typeModule;
-    }
-
-    /**
-     * Add idProfesseur
-     *
-     * @param \AppBundle\Entity\Professeur $idProfesseur
-     * @return Module
-     */
-    public function addIdProfesseur(\AppBundle\Entity\Professeur $idProfesseur)
-    {
-        $this->idProfesseur[] = $idProfesseur;
-
-        return $this;
-    }
-
-    /**
-     * Remove idProfesseur
-     *
-     * @param \AppBundle\Entity\Professeur $idProfesseur
-     */
-    public function removeIdProfesseur(\AppBundle\Entity\Professeur $idProfesseur)
-    {
-        $this->idProfesseur->removeElement($idProfesseur);
-    }
-
-    /**
-     * Get idProfesseur
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getIdProfesseur()
-    {
-        return $this->idProfesseur;
-    }
 }

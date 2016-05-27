@@ -4,16 +4,6 @@
     <id name="idAnnee" type="integer" column="ID_ANNEE">
       <generator strategy="IDENTITY"/>
     </id>
-    <field name="libelleAnnee" type="string" column="LIBELLE_ANNEE" length="20" nullable="true"/>
-    <many-to-many field="idClasse" target-entity="Classe" inversed-by="idAnnee">
-      <join-table name="derouler">
-        <join-columns>
-          <join-column name="ID_ANNEE" referenced-column-name="ID_ANNEE"/>
-        </join-columns>
-        <inverse-join-columns>
-          <join-column name="ID_CLASSE" referenced-column-name="ID_CLASSE"/>
-        </inverse-join-columns>
-      </join-table>
-    </many-to-many>
+    <field name="libelle" type="string" column="LIBELLE" length="30" nullable="true"/>
   </entity>
 </doctrine-mapping>
