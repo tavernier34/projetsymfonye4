@@ -12,4 +12,12 @@ use Doctrine\ORM\EntityRepository;
  */
 class ClasseRepository extends EntityRepository
 {
+    public function findAllClasses()
+    {
+        return $this->getEntityManager()
+            ->createQuery('SELECT c.idClasse, c.libelleClasse
+                FROM AppBundle:Classe c
+                ')
+            ->getResult();
+    }
 }

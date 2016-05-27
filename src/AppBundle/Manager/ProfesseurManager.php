@@ -25,26 +25,15 @@ class ProfesseurManager
     public function __construct($em)
     {
         $this->entityManager = $em;
-        $this->repository = $em->getRepository('AppBundle:Professeur');
+        $this->repository = $em->getRepository('AppBundle:Classe');
     }
 
-    public function loadAllClasses($orderedByLibelle = true)
+    public function loadAllClasses()
     {
-        if ($orderedByLibelle)
-            $classes = $this->repository->loadAllClasses();
-        else
-            $classes = $this->repository->findAll();
+        
+            $classes = $this->repository->findAllClasses();
 
         return $classes;
     }
-
-    /**
-     * Load Professeur entity
-     *
-     * @param Integer $idProfesseur
-     */
-    public function loadProfesseur($idProfesseur)
-    {
-        return $this->repository->find($idProfesseur);
-    }
+    
 }
