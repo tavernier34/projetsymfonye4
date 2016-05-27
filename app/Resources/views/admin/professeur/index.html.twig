@@ -9,13 +9,17 @@
 
     <table>
         <thead>
-        <th>Libelle</th>
+        <th>ID</th>
+        <th>PRENOM</th>
+        <th>NOM</th>
 
         </thead>
         {% for classe in arrayClasses %}
         <tbody>
         <tr>
-            <td>{{ classe.libelleClasse }}</td>
+            <td>{{ classe.idPersonne }}</td>
+            <td>{{ classe.prenom }}</td>
+            <td>{{ classe.nom }}</td>
 
         </tr>
         {% else %}
