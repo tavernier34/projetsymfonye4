@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Annee
  *
  * @ORM\Table(name="ANNEE")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="AppBundle\Entity\AnneeRepository")
  */
 class Annee
 {
@@ -29,4 +29,37 @@ class Annee
     private $libelle;
 
 
+
+    /**
+     * Get idAnnee
+     *
+     * @return integer 
+     */
+    public function getIdAnnee()
+    {
+        return $this->idAnnee;
+    }
+
+    /**
+     * Set libelle
+     *
+     * @param string $libelle
+     * @return Annee
+     */
+    public function setLibelle($libelle)
+    {
+        $this->libelle = $libelle;
+
+        return $this;
+    }
+
+    /**
+     * Get libelle
+     *
+     * @return string 
+     */
+    public function getLibelle()
+    {
+        return $this->libelle;
+    }
 }
