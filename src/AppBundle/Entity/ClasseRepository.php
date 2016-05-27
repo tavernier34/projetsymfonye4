@@ -15,8 +15,12 @@ class ClasseRepository extends EntityRepository
     public function findAllClasses()
     {
         return $this->getEntityManager()
-            ->createQuery('SELECT c.idClasse, c.libelleClasse
-                FROM AppBundle:Classe c
+            ->createQuery('SELECT c.libelleClasse, m.nomModule, p.nom
+                FROM AppBundle:Classe c, AppBundle:Pendant pe, AppBundle:Module m, AppBundle:Professeur p
+                WHERE c.idClasse = pe.idClasse
+                AND pe.idModule = m.idModule
+                AND m.idProfesseur = p.idProfesseur
+                AND p.idProfesseur = 3
                 ')
             ->getResult();
     }
