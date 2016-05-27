@@ -20,7 +20,7 @@ class ClasseRepository extends EntityRepository
                 WHERE c.idClasse = pe.idClasse
                 AND pe.idModule = m.idModule
                 AND m.idProfesseur = p.idProfesseur
-                AND p.idProfesseur = 3
+                AND p.idProfesseur = 4
                 ')
             ->getResult();
     }
