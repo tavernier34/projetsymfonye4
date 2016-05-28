@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}
+    Liste des employées
+{% endblock %}
+
+{% block body %}
+    {% stylesheets
+
+    '@AppBundle/Resources/public/css/professeur.css'
+    '@AppBundle/Resources/public/css/bootstrap.css'
+    '@AppBundle/Resources/public/css/bootstrap-theme.css'
+    filter='cssrewrite' %}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+    <div class="tableau">
+        <h1>Liste des classes de : </h1>
+
+        <table>
+            <thead>
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>Matiere</th>
+
+            <th>Note</th>
+
+            </thead>
+            {% for note in arrayNotes %}
+            <tbody>
+            <tr>
+                <td>{{ note.nom }}</td>
+                <td>{{ note.prenom }}</td>
+                <td>{{ note.nomModule }}</td>
+
+                <td>{{ note.note }}</td>
+
+
+            </tr>
+            {% else %}
+                <tr><td>Vous n'avez pas encore de classe(s).</td></tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}
+
