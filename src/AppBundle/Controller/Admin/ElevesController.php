@@ -34,4 +34,16 @@ class ElevesController extends Controller
     {
        return $this->render('admin/eleve/index.html.twig');
     }
+
+    /**
+     * @Route("/admin/eleve/note/", name="admin_note_affichenote")
+     */
+
+    public function noteAction()
+    {
+        // Obtention du manager puis des notes d'un éleve
+        $notes = $this->getManager()->loadAllNotes();
+
+        return $this->render('admin/eleve/note.html.twig', array("arrayNotes" => $notes));
+    }
 }

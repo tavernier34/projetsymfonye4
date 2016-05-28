@@ -10,4 +10,5 @@ namespace AppBundle\Entity;
  */
 class EleveRepository extends \Doctrine\ORM\EntityRepository
 {
+    
 }

@@ -10,8 +10,8 @@
 namespace AppBundle\Manager;
 
 
-use AppBundle\Entity\Eleve;
-use AppBundle\Entity\EleveRepository;
+use AppBundle\Entity\Note;
+use AppBundle\Entity\NoteRepository;
 
 class EleveManager
 {
@@ -21,7 +21,14 @@ class EleveManager
     public function __construct($em)
     {
         $this->entityManager = $em;
-        $this->repository = $em->getRepository('AppBundle:Classe');
+        $this->repository = $em->getRepository('AppBundle:Note');
     }
-    
+
+    public function loadAllNotes()
+    {
+
+        $notes = $this->repository->findAllNotes();
+
+        return $notes;
+    }
 }
