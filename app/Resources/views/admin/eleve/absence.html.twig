@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}
+    Liste des employées
+{% endblock %}
+
+{% block body %}
+    <div class="tableau">
+        <h1>Liste des absences de : </h1>
+
+        <table>
+            <thead>
+            <th>Justificatif</th>
+            <th>Motif</th>
+            </thead>
+            {% for absence in arrayAbsences %}
+            <tbody>
+            <tr>
+                <td>{{ absence.justificatif }}</td>
+                <td>{{ absence.motif }}</td>
+            </tr>
+            {% else %}
+                <tr><td>Vous n'avez pas encore d'absence(s).</td></tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}
+

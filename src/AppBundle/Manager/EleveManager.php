@@ -21,8 +21,9 @@ class EleveManager
     public function __construct($em)
     {
         $this->entityManager = $em;
-        $this->repository = $em->getRepository('AppBundle:Note');
+        $this->repository = $em->getRepository('AppBundle:Eleve');
     }
+
 
     public function loadAllNotes()
     {
@@ -30,5 +31,13 @@ class EleveManager
         $notes = $this->repository->findAllNotes();
 
         return $notes;
+    }
+
+    public function loadAllAbsences()
+    {
+
+        $absences = $this->repository->findAllAbsences();
+
+        return $absences;
     }
 }

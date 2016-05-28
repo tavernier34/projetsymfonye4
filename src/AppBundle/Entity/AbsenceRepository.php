@@ -10,4 +10,5 @@ namespace AppBundle\Entity;
  */
 class AbsenceRepository extends \Doctrine\ORM\EntityRepository
 {
+    
 }

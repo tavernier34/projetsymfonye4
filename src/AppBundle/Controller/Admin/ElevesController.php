@@ -17,7 +17,10 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 use AppBundle\Entity\Eleve;
+use AppBundle\Entity\Classe;
+use AppBundle\Entity\Absence;
 use AppBundle\Manager\EleveManager;
+
 
 class ElevesController extends Controller
 {
@@ -45,5 +48,17 @@ class ElevesController extends Controller
         $notes = $this->getManager()->loadAllNotes();
 
         return $this->render('admin/eleve/note.html.twig', array("arrayNotes" => $notes));
+    }
+
+    /**
+     * @Route("/admin/eleve/absence/", name="admin_note_afficheabsence")
+     */
+
+    public function absenceAction()
+    {
+        // Obtention du manager puis des absences d'un éleve
+        $absences = $this->getManager()->loadAllAbsences();
+
+        return $this->render('admin/eleve/absence.html.twig', array("arrayAbsences" => $absences));
     }
 }

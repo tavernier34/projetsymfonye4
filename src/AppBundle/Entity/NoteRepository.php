@@ -10,13 +10,5 @@ namespace AppBundle\Entity;
  */
 class NoteRepository extends \Doctrine\ORM\EntityRepository
 {
-    public function findAllNotes()
-    {
-        return $this->getEntityManager()
-            ->createQuery('SELECT n.note, n.dateNote, el.prenom, el.nom, m.nomModule
-                FROM AppBundle:Note n, AppBundle:Module m, AppBundle:Eleve el WHERE el.idEleve=n.idEleve AND n.idModule=m.idModule
-                
-                ')
-            ->getResult();
-    }
+    
 }
