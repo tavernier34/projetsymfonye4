@@ -30,16 +30,37 @@ class ProfesseursController extends Controller
     }
 
     /**
+
      * @Route("/admin/professeur/", name="admin_professeur_homepage")
      */
-    
+
     public function indexAction()
+    {
+             return $this->render('admin/professeur/index.html.twig');
+    }
+
+
+    /**
+     * @Route("/admin/professeur/classe", name="admin_professeur_listeClasse")
+     */
+    
+    public function ClasseAction()
     {
     // Obtention du manager puis des classes
         $classes = $this->getManager()->loadAllClasses();
 
-        return $this->render('admin/professeur/index.html.twig', array("arrayClasses" => $classes));
+        return $this->render('admin/professeur/classe.html.twig', array("arrayClasses" => $classes));
     }
-    
-    
+
+    /**
+     * @Route("/admin/professeur/absence/", name="admin_professeur_afficheabsence")
+     */
+
+    public function absenceAction()
+    {
+        // Obtention du manager puis des absences d'un professeur
+        $absences = $this->getManager()->loadAllAbsences();
+
+        return $this->render('admin/absence.html.twig', array("arrayAbsences" => $absences));
+    }
 }

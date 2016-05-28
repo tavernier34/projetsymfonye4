@@ -12,6 +12,8 @@ namespace AppBundle\Manager;
 
 use AppBundle\Entity\Note;
 use AppBundle\Entity\NoteRepository;
+use AppBundle\Entity\Eleve;
+use AppBundle\Entity\EleveRepository;
 
 class EleveManager
 {
