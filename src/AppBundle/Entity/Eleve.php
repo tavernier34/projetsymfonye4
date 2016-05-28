@@ -96,6 +96,7 @@ class Eleve
      * Set nom
      *
      * @param string $nom
+     *
      * @return Eleve
      */
     public function setNom($nom)
@@ -108,7 +109,7 @@ class Eleve
     /**
      * Get nom
      *
-     * @return string 
+     * @return string
      */
     public function getNom()
     {
@@ -119,6 +120,7 @@ class Eleve
      * Set prenom
      *
      * @param string $prenom
+     *
      * @return Eleve
      */
     public function setPrenom($prenom)
@@ -131,7 +133,7 @@ class Eleve
     /**
      * Get prenom
      *
-     * @return string 
+     * @return string
      */
     public function getPrenom()
     {
@@ -142,6 +144,7 @@ class Eleve
      * Set adresse
      *
      * @param string $adresse
+     *
      * @return Eleve
      */
     public function setAdresse($adresse)
@@ -154,7 +157,7 @@ class Eleve
     /**
      * Get adresse
      *
-     * @return string 
+     * @return string
      */
     public function getAdresse()
     {
@@ -165,6 +168,7 @@ class Eleve
      * Set codepostal
      *
      * @param integer $codepostal
+     *
      * @return Eleve
      */
     public function setCodepostal($codepostal)
@@ -177,7 +181,7 @@ class Eleve
     /**
      * Get codepostal
      *
-     * @return integer 
+     * @return integer
      */
     public function getCodepostal()
     {
@@ -188,6 +192,7 @@ class Eleve
      * Set ville
      *
      * @param string $ville
+     *
      * @return Eleve
      */
     public function setVille($ville)
@@ -200,7 +205,7 @@ class Eleve
     /**
      * Get ville
      *
-     * @return string 
+     * @return string
      */
     public function getVille()
     {
@@ -211,6 +216,7 @@ class Eleve
      * Set telephone
      *
      * @param integer $telephone
+     *
      * @return Eleve
      */
     public function setTelephone($telephone)
@@ -223,7 +229,7 @@ class Eleve
     /**
      * Get telephone
      *
-     * @return integer 
+     * @return integer
      */
     public function getTelephone()
     {
@@ -234,6 +240,7 @@ class Eleve
      * Set email
      *
      * @param string $email
+     *
      * @return Eleve
      */
     public function setEmail($email)
@@ -246,7 +253,7 @@ class Eleve
     /**
      * Get email
      *
-     * @return string 
+     * @return string
      */
     public function getEmail()
     {
@@ -257,6 +264,7 @@ class Eleve
      * Set password
      *
      * @param string $password
+     *
      * @return Eleve
      */
     public function setPassword($password)
@@ -269,7 +277,7 @@ class Eleve
     /**
      * Get password
      *
-     * @return string 
+     * @return string
      */
     public function getPassword()
     {
@@ -280,6 +288,7 @@ class Eleve
      * Set idClasse
      *
      * @param \AppBundle\Entity\Classe $idClasse
+     *
      * @return Eleve
      */
     public function setIdClasse(\AppBundle\Entity\Classe $idClasse = null)
@@ -292,7 +301,7 @@ class Eleve
     /**
      * Get idClasse
      *
-     * @return \AppBundle\Entity\Classe 
+     * @return \AppBundle\Entity\Classe
      */
     public function getIdClasse()
     {
@@ -303,6 +312,7 @@ class Eleve
      * Set idEleve
      *
      * @param \AppBundle\Entity\Personne $idEleve
+     *
      * @return Eleve
      */
     public function setIdEleve(\AppBundle\Entity\Personne $idEleve)
@@ -315,7 +325,7 @@ class Eleve
     /**
      * Get idEleve
      *
-     * @return \AppBundle\Entity\Personne 
+     * @return \AppBundle\Entity\Personne
      */
     public function getIdEleve()
     {

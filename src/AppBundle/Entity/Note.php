@@ -67,7 +67,7 @@ class Note
     /**
      * Get idNote
      *
-     * @return integer 
+     * @return integer
      */
     public function getIdNote()
     {
@@ -78,6 +78,7 @@ class Note
      * Set note
      *
      * @param integer $note
+     *
      * @return Note
      */
     public function setNote($note)
@@ -90,7 +91,7 @@ class Note
     /**
      * Get note
      *
-     * @return integer 
+     * @return integer
      */
     public function getNote()
     {
@@ -101,6 +102,7 @@ class Note
      * Set valeurmax
      *
      * @param integer $valeurmax
+     *
      * @return Note
      */
     public function setValeurmax($valeurmax)
@@ -113,7 +115,7 @@ class Note
     /**
      * Get valeurmax
      *
-     * @return integer 
+     * @return integer
      */
     public function getValeurmax()
     {
@@ -124,6 +126,7 @@ class Note
      * Set dateNote
      *
      * @param \DateTime $dateNote
+     *
      * @return Note
      */
     public function setDateNote($dateNote)
@@ -136,7 +139,7 @@ class Note
     /**
      * Get dateNote
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getDateNote()
     {
@@ -147,6 +150,7 @@ class Note
      * Set idModule
      *
      * @param \AppBundle\Entity\Module $idModule
+     *
      * @return Note
      */
     public function setIdModule(\AppBundle\Entity\Module $idModule = null)
@@ -159,7 +163,7 @@ class Note
     /**
      * Get idModule
      *
-     * @return \AppBundle\Entity\Module 
+     * @return \AppBundle\Entity\Module
      */
     public function getIdModule()
     {
@@ -170,6 +174,7 @@ class Note
      * Set idEleve
      *
      * @param \AppBundle\Entity\Eleve $idEleve
+     *
      * @return Note
      */
     public function setIdEleve(\AppBundle\Entity\Eleve $idEleve = null)
@@ -182,7 +187,7 @@ class Note
     /**
      * Get idEleve
      *
-     * @return \AppBundle\Entity\Eleve 
+     * @return \AppBundle\Entity\Eleve
      */
     public function getIdEleve()
     {

@@ -36,6 +36,7 @@ class Deroule
      * Set idClasse
      *
      * @param integer $idClasse
+     *
      * @return Deroule
      */
     public function setIdClasse($idClasse)
@@ -48,7 +49,7 @@ class Deroule
     /**
      * Get idClasse
      *
-     * @return integer 
+     * @return integer
      */
     public function getIdClasse()
     {
@@ -59,6 +60,7 @@ class Deroule
      * Set idAnnee
      *
      * @param integer $idAnnee
+     *
      * @return Deroule
      */
     public function setIdAnnee($idAnnee)
@@ -71,7 +73,7 @@ class Deroule
     /**
      * Get idAnnee
      *
-     * @return integer 
+     * @return integer
      */
     public function getIdAnnee()
     {

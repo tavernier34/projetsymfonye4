@@ -64,7 +64,7 @@ class Absence
     /**
      * Get idAbsence
      *
-     * @return integer 
+     * @return integer
      */
     public function getIdAbsence()
     {
@@ -75,6 +75,7 @@ class Absence
      * Set datedebutAbsence
      *
      * @param \DateTime $datedebutAbsence
+     *
      * @return Absence
      */
     public function setDatedebutAbsence($datedebutAbsence)
@@ -87,7 +88,7 @@ class Absence
     /**
      * Get datedebutAbsence
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getDatedebutAbsence()
     {
@@ -98,6 +99,7 @@ class Absence
      * Set datefinAbsence
      *
      * @param \DateTime $datefinAbsence
+     *
      * @return Absence
      */
     public function setDatefinAbsence($datefinAbsence)
@@ -110,7 +112,7 @@ class Absence
     /**
      * Get datefinAbsence
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getDatefinAbsence()
     {
@@ -121,6 +123,7 @@ class Absence
      * Set justificatif
      *
      * @param boolean $justificatif
+     *
      * @return Absence
      */
     public function setJustificatif($justificatif)
@@ -133,7 +136,7 @@ class Absence
     /**
      * Get justificatif
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getJustificatif()
     {
@@ -144,6 +147,7 @@ class Absence
      * Set motif
      *
      * @param string $motif
+     *
      * @return Absence
      */
     public function setMotif($motif)
@@ -156,7 +160,7 @@ class Absence
     /**
      * Get motif
      *
-     * @return string 
+     * @return string
      */
     public function getMotif()
     {
@@ -167,6 +171,7 @@ class Absence
      * Set idPersonne
      *
      * @param \AppBundle\Entity\Personne $idPersonne
+     *
      * @return Absence
      */
     public function setIdPersonne(\AppBundle\Entity\Personne $idPersonne = null)
@@ -179,7 +184,7 @@ class Absence
     /**
      * Get idPersonne
      *
-     * @return \AppBundle\Entity\Personne 
+     * @return \AppBundle\Entity\Personne
      */
     public function getIdPersonne()
     {

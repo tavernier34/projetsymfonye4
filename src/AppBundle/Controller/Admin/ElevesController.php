@@ -16,10 +16,22 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
-use AppBundle\Entity\Professeur;
-use AppBundle\Manager\ProfesseurManager;
+use AppBundle\Entity\Eleve;
+use AppBundle\Manager\EleveManager;
 
-class ElevesController
+class ElevesController extends Controller
 {
+    private function getManager()
+    {
+        return new EleveManager($this->get('doctrine')->getManager());
+    }
 
+    /**
+     * @Route("/admin/eleve/", name="admin_eleve_homepage")
+     */
+
+    public function indexAction()
+    {
+       return $this->render('admin/eleve/index.html.twig');
+    }
 }

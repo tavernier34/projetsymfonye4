@@ -54,7 +54,7 @@ class Module
     /**
      * Get idModule
      *
-     * @return integer 
+     * @return integer
      */
     public function getIdModule()
     {
@@ -65,6 +65,7 @@ class Module
      * Set nomModule
      *
      * @param string $nomModule
+     *
      * @return Module
      */
     public function setNomModule($nomModule)
@@ -77,7 +78,7 @@ class Module
     /**
      * Get nomModule
      *
-     * @return string 
+     * @return string
      */
     public function getNomModule()
     {
@@ -88,6 +89,7 @@ class Module
      * Set typeModule
      *
      * @param string $typeModule
+     *
      * @return Module
      */
     public function setTypeModule($typeModule)
@@ -100,7 +102,7 @@ class Module
     /**
      * Get typeModule
      *
-     * @return string 
+     * @return string
      */
     public function getTypeModule()
     {
@@ -111,6 +113,7 @@ class Module
      * Add idProfesseur
      *
      * @param \AppBundle\Entity\Professeur $idProfesseur
+     *
      * @return Module
      */
     public function addIdProfesseur(\AppBundle\Entity\Professeur $idProfesseur)
@@ -133,7 +136,7 @@ class Module
     /**
      * Get idProfesseur
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getIdProfesseur()
     {

@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Pendant
  *
  * @ORM\Table(name="PENDANT", indexes={@ORM\Index(name="FK_PENDANT2", columns={"ID_CLASSE"}), @ORM\Index(name="FK_PENDANT3", columns={"ID_SEMESTRE"}), @ORM\Index(name="IDX_613D94C5A16CB4B6", columns={"ID_MODULE"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="AppBundle\Entity\PendantRepository")
  */
 class Pendant
 {
@@ -54,6 +54,7 @@ class Pendant
      * Set idModule
      *
      * @param \AppBundle\Entity\Module $idModule
+     *
      * @return Pendant
      */
     public function setIdModule(\AppBundle\Entity\Module $idModule)
@@ -66,7 +67,7 @@ class Pendant
     /**
      * Get idModule
      *
-     * @return \AppBundle\Entity\Module 
+     * @return \AppBundle\Entity\Module
      */
     public function getIdModule()
     {
@@ -77,6 +78,7 @@ class Pendant
      * Set idClasse
      *
      * @param \AppBundle\Entity\Classe $idClasse
+     *
      * @return Pendant
      */
     public function setIdClasse(\AppBundle\Entity\Classe $idClasse)
@@ -89,7 +91,7 @@ class Pendant
     /**
      * Get idClasse
      *
-     * @return \AppBundle\Entity\Classe 
+     * @return \AppBundle\Entity\Classe
      */
     public function getIdClasse()
     {
@@ -100,6 +102,7 @@ class Pendant
      * Set idSemestre
      *
      * @param \AppBundle\Entity\Semestre $idSemestre
+     *
      * @return Pendant
      */
     public function setIdSemestre(\AppBundle\Entity\Semestre $idSemestre)
@@ -112,7 +115,7 @@ class Pendant
     /**
      * Get idSemestre
      *
-     * @return \AppBundle\Entity\Semestre 
+     * @return \AppBundle\Entity\Semestre
      */
     public function getIdSemestre()
     {

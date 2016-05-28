@@ -47,7 +47,7 @@ class Semestre
     /**
      * Get idSemestre
      *
-     * @return integer 
+     * @return integer
      */
     public function getIdSemestre()
     {
@@ -58,6 +58,7 @@ class Semestre
      * Set datedebutSemestre
      *
      * @param \DateTime $datedebutSemestre
+     *
      * @return Semestre
      */
     public function setDatedebutSemestre($datedebutSemestre)
@@ -70,7 +71,7 @@ class Semestre
     /**
      * Get datedebutSemestre
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getDatedebutSemestre()
     {
@@ -81,6 +82,7 @@ class Semestre
      * Set datefinSemestre
      *
      * @param \DateTime $datefinSemestre
+     *
      * @return Semestre
      */
     public function setDatefinSemestre($datefinSemestre)
@@ -93,7 +95,7 @@ class Semestre
     /**
      * Get datefinSemestre
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getDatefinSemestre()
     {
@@ -104,6 +106,7 @@ class Semestre
      * Set anneeSemestre
      *
      * @param integer $anneeSemestre
+     *
      * @return Semestre
      */
     public function setAnneeSemestre($anneeSemestre)
@@ -116,7 +119,7 @@ class Semestre
     /**
      * Get anneeSemestre
      *
-     * @return integer 
+     * @return integer
      */
     public function getAnneeSemestre()
     {

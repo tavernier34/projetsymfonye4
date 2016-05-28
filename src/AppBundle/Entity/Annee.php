@@ -33,7 +33,7 @@ class Annee
     /**
      * Get idAnnee
      *
-     * @return integer 
+     * @return integer
      */
     public function getIdAnnee()
     {
@@ -44,6 +44,7 @@ class Annee
      * Set libelle
      *
      * @param string $libelle
+     *
      * @return Annee
      */
     public function setLibelle($libelle)
@@ -56,7 +57,7 @@ class Annee
     /**
      * Get libelle
      *
-     * @return string 
+     * @return string
      */
     public function getLibelle()
     {

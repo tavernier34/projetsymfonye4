@@ -33,7 +33,7 @@ class Classe
     /**
      * Get idClasse
      *
-     * @return integer 
+     * @return integer
      */
     public function getIdClasse()
     {
@@ -44,6 +44,7 @@ class Classe
      * Set libelleClasse
      *
      * @param string $libelleClasse
+     *
      * @return Classe
      */
     public function setLibelleClasse($libelleClasse)
@@ -56,7 +57,7 @@ class Classe
     /**
      * Get libelleClasse
      *
-     * @return string 
+     * @return string
      */
     public function getLibelleClasse()
     {

@@ -82,7 +82,7 @@ class Personne
     /**
      * Get idPersonne
      *
-     * @return integer 
+     * @return integer
      */
     public function getIdPersonne()
     {
@@ -93,6 +93,7 @@ class Personne
      * Set nom
      *
      * @param string $nom
+     *
      * @return Personne
      */
     public function setNom($nom)
@@ -105,7 +106,7 @@ class Personne
     /**
      * Get nom
      *
-     * @return string 
+     * @return string
      */
     public function getNom()
     {
@@ -116,6 +117,7 @@ class Personne
      * Set prenom
      *
      * @param string $prenom
+     *
      * @return Personne
      */
     public function setPrenom($prenom)
@@ -128,7 +130,7 @@ class Personne
     /**
      * Get prenom
      *
-     * @return string 
+     * @return string
      */
     public function getPrenom()
     {
@@ -139,6 +141,7 @@ class Personne
      * Set adresse
      *
      * @param string $adresse
+     *
      * @return Personne
      */
     public function setAdresse($adresse)
@@ -151,7 +154,7 @@ class Personne
     /**
      * Get adresse
      *
-     * @return string 
+     * @return string
      */
     public function getAdresse()
     {
@@ -162,6 +165,7 @@ class Personne
      * Set codepostal
      *
      * @param integer $codepostal
+     *
      * @return Personne
      */
     public function setCodepostal($codepostal)
@@ -174,7 +178,7 @@ class Personne
     /**
      * Get codepostal
      *
-     * @return integer 
+     * @return integer
      */
     public function getCodepostal()
     {
@@ -185,6 +189,7 @@ class Personne
      * Set ville
      *
      * @param string $ville
+     *
      * @return Personne
      */
     public function setVille($ville)
@@ -197,7 +202,7 @@ class Personne
     /**
      * Get ville
      *
-     * @return string 
+     * @return string
      */
     public function getVille()
     {
@@ -208,6 +213,7 @@ class Personne
      * Set telephone
      *
      * @param integer $telephone
+     *
      * @return Personne
      */
     public function setTelephone($telephone)
@@ -220,7 +226,7 @@ class Personne
     /**
      * Get telephone
      *
-     * @return integer 
+     * @return integer
      */
     public function getTelephone()
     {
@@ -231,6 +237,7 @@ class Personne
      * Set email
      *
      * @param string $email
+     *
      * @return Personne
      */
     public function setEmail($email)
@@ -243,7 +250,7 @@ class Personne
     /**
      * Get email
      *
-     * @return string 
+     * @return string
      */
     public function getEmail()
     {
@@ -254,6 +261,7 @@ class Personne
      * Set password
      *
      * @param string $password
+     *
      * @return Personne
      */
     public function setPassword($password)
@@ -266,7 +274,7 @@ class Personne
     /**
      * Get password
      *
-     * @return string 
+     * @return string
      */
     public function getPassword()
     {

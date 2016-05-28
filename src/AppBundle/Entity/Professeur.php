@@ -108,6 +108,7 @@ class Professeur
      * Set nom
      *
      * @param string $nom
+     *
      * @return Professeur
      */
     public function setNom($nom)
@@ -120,7 +121,7 @@ class Professeur
     /**
      * Get nom
      *
-     * @return string 
+     * @return string
      */
     public function getNom()
     {
@@ -131,6 +132,7 @@ class Professeur
      * Set prenom
      *
      * @param string $prenom
+     *
      * @return Professeur
      */
     public function setPrenom($prenom)
@@ -143,7 +145,7 @@ class Professeur
     /**
      * Get prenom
      *
-     * @return string 
+     * @return string
      */
     public function getPrenom()
     {
@@ -154,6 +156,7 @@ class Professeur
      * Set adresse
      *
      * @param string $adresse
+     *
      * @return Professeur
      */
     public function setAdresse($adresse)
@@ -166,7 +169,7 @@ class Professeur
     /**
      * Get adresse
      *
-     * @return string 
+     * @return string
      */
     public function getAdresse()
     {
@@ -177,6 +180,7 @@ class Professeur
      * Set codepostal
      *
      * @param integer $codepostal
+     *
      * @return Professeur
      */
     public function setCodepostal($codepostal)
@@ -189,7 +193,7 @@ class Professeur
     /**
      * Get codepostal
      *
-     * @return integer 
+     * @return integer
      */
     public function getCodepostal()
     {
@@ -200,6 +204,7 @@ class Professeur
      * Set ville
      *
      * @param string $ville
+     *
      * @return Professeur
      */
     public function setVille($ville)
@@ -212,7 +217,7 @@ class Professeur
     /**
      * Get ville
      *
-     * @return string 
+     * @return string
      */
     public function getVille()
     {
@@ -223,6 +228,7 @@ class Professeur
      * Set telephone
      *
      * @param integer $telephone
+     *
      * @return Professeur
      */
     public function setTelephone($telephone)
@@ -235,7 +241,7 @@ class Professeur
     /**
      * Get telephone
      *
-     * @return integer 
+     * @return integer
      */
     public function getTelephone()
     {
@@ -246,6 +252,7 @@ class Professeur
      * Set email
      *
      * @param string $email
+     *
      * @return Professeur
      */
     public function setEmail($email)
@@ -258,7 +265,7 @@ class Professeur
     /**
      * Get email
      *
-     * @return string 
+     * @return string
      */
     public function getEmail()
     {
@@ -269,6 +276,7 @@ class Professeur
      * Set password
      *
      * @param string $password
+     *
      * @return Professeur
      */
     public function setPassword($password)
@@ -281,7 +289,7 @@ class Professeur
     /**
      * Get password
      *
-     * @return string 
+     * @return string
      */
     public function getPassword()
     {
@@ -292,6 +300,7 @@ class Professeur
      * Set idProfesseur
      *
      * @param \AppBundle\Entity\Personne $idProfesseur
+     *
      * @return Professeur
      */
     public function setIdProfesseur(\AppBundle\Entity\Personne $idProfesseur)
@@ -304,7 +313,7 @@ class Professeur
     /**
      * Get idProfesseur
      *
-     * @return \AppBundle\Entity\Personne 
+     * @return \AppBundle\Entity\Personne
      */
     public function getIdProfesseur()
     {
@@ -315,6 +324,7 @@ class Professeur
      * Add idModule
      *
      * @param \AppBundle\Entity\Module $idModule
+     *
      * @return Professeur
      */
     public function addIdModule(\AppBundle\Entity\Module $idModule)
@@ -337,7 +347,7 @@ class Professeur
     /**
      * Get idModule
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getIdModule()
     {
