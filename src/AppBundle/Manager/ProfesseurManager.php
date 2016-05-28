@@ -35,5 +35,12 @@ class ProfesseurManager
 
         return $classes;
     }
-    
+
+    public function loadAllAbsences()
+    {
+
+        $absences = $this->repository->findAllAbsences();
+
+        return $absences;
+    }
 }

@@ -10,4 +10,13 @@ namespace AppBundle\Entity;
  */
 class ProfesseurRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findAllAbsences()
+    {
+        return $this->getEntityManager()
+            ->createQuery('SELECT a.justificatif, a.motif
+                FROM AppBundle:Absence a, AppBundle:Personne p WHERE a.idPersonne=p.idPersonne 
+                
+                ')
+            ->getResult();
+    }
 }

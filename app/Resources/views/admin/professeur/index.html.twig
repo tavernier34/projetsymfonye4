@@ -1,32 +1,20 @@
 {% extends 'base.html.twig' %}
 
-
 {% block title %}
-    Liste des employées
+    Bienvenue sur votre portail Insta'Note
 {% endblock %}
 
 {% block body %}
-    <div class="tableau">
-    <h1>Liste des classes de : </h1>
+    <h1 id="titreIndex">Vous pouvez consulter :</h1>
 
-    <table>
-        <thead>
-        <th>Libelle Classe</th>
-
-        </thead>
-        {% for classe in arrayClasses %}
-        <tbody>
-        <tr>
-            <td>{{ classe.libelleClasse }}</td>
+    <div class="col-sm-6 col-md-3 outer-div" >
+        <div id="suivi" class="thumbnail inner-div"><a href="{{ path('admin_professeur_listeClasse') }}"> Vos classes </a></div>
+    </div>
+    <div class="col-sm-6 col-md-3 outer-div">
+        <div id="absence" class="thumbnail inner-div"><a href="{{ path('admin_professeur_afficheabsence') }}"> Vos absences </a></div>
+    </div>
 
 
-        </tr>
-        {% else %}
-            <tr><td>Vous n'avez pas encore de classe(s).</td></tr>
-        {% endfor %}
-        </tbody>
-    </table>
-        </div>
 
 {% endblock %}
 

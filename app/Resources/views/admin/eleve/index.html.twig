@@ -6,9 +6,12 @@
 
 {% block body %}
     <h1 id="titreIndex">Vous pouvez consulter :</h1>
-    <div id="menu">
-        <span id="suivi">Votre suivi scolaire</span>
-        <span id="absence">Vos absences</span>
+
+    <div class="col-sm-6 col-md-3 outer-div" >
+        <div id="suivi" class="thumbnail inner-div"><a href="{{ path('admin_eleve_affichenote') }}"> Votre suivi scolaire </a></div>
+    </div>
+    <div class="col-sm-6 col-md-3 outer-div">
+        <div id="absence" class="thumbnail inner-div"><a href="{{ path('admin_eleve_afficheabsence') }}"> Vos absences </a></div>
     </div>
 
 

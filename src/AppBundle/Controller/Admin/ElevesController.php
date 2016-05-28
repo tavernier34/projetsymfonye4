@@ -39,7 +39,7 @@ class ElevesController extends Controller
     }
 
     /**
-     * @Route("/admin/eleve/note/", name="admin_note_affichenote")
+     * @Route("/admin/eleve/note/", name="admin_eleve_affichenote")
      */
 
     public function noteAction()
@@ -51,7 +51,7 @@ class ElevesController extends Controller
     }
 
     /**
-     * @Route("/admin/eleve/absence/", name="admin_note_afficheabsence")
+     * @Route("/admin/eleve/absence/", name="admin_eleve_afficheabsence")
      */
 
     public function absenceAction()
@@ -59,6 +59,6 @@ class ElevesController extends Controller
         // Obtention du manager puis des absences d'un éleve
         $absences = $this->getManager()->loadAllAbsences();
 
-        return $this->render('admin/eleve/absence.html.twig', array("arrayAbsences" => $absences));
+        return $this->render('admin/absence.html.twig', array("arrayAbsences" => $absences));
     }
 }

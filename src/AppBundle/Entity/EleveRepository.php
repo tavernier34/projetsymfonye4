@@ -28,4 +28,5 @@ class EleveRepository extends \Doctrine\ORM\EntityRepository
                 
                 ')
             ->getResult();
-    }}
+    }
+}

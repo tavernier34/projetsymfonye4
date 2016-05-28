@@ -4,10 +4,11 @@
         <meta charset="UTF-8" />
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% stylesheets
-        '@AppBundle/resources/public/css/eleve_index.css'
-        '@AppBundle/resources/public/css/professeur.css'
-        filter='cssrewrite'%}
-        <link rel="stylesheet" href="{{ asset_url }}" />
+            '@AppBundle/resources/public/css/index2.css'
+            '@AppBundle/resources/public/css/bootstrap.css'
+            '@AppBundle/resources/public/css/bootstrap-theme.css'
+            filter='cssrewrite'%}
+            <link rel="stylesheet" href="{{ asset_url }}" />
         {% endstylesheets %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
