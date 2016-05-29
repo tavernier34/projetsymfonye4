@@ -5,12 +5,14 @@
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% stylesheets
             '@AppBundle/resources/public/css/index2.css'
+        '@AppBundle/resources/public/css/index.css'
             '@AppBundle/resources/public/css/bootstrap.css'
             '@AppBundle/resources/public/css/bootstrap-theme.css'
             filter='cssrewrite'%}
             <link rel="stylesheet" href="{{ asset_url }}" />
         {% endstylesheets %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        salut
     </head>
     <body>
         {% block body %}{% endblock %}

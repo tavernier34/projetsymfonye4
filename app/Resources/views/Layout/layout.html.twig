@@ -1,13 +1,7 @@
-{% extends 'base.html.twig' %}
+{% extends '::base.html.twig' %}
 
 {% block body %}
-    {% stylesheets
-    '@AppBundle/Resources/public/css/index.css'
-    '@AppBundle/Resources/public/css/bootstrap.css'
-    '@AppBundle/Resources/public/css/bootstrap-theme.css'
-    filter='cssrewrite' %}
-    <link rel="stylesheet" href="{{ asset_url }}" />
-    {% endstylesheets %}
+
     <div id="container">
 
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
