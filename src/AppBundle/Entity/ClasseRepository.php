@@ -19,8 +19,6 @@ class ClasseRepository extends EntityRepository
             FROM AppBundle:Classe c, AppBundle:Pendant pe, AppBundle:Module m, AppBundle:Professeur p
             WHERE c.idClasse = pe.idClasse
             AND pe.idModule = m.idModule
-            AND m.idProfesseur = IDENTITY(p.idProfesseur)
-            AND p.idProfesseur = 3
                 ')
             ->getResult();
     }
