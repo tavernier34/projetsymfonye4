@@ -24,14 +24,14 @@ class Module
     /**
      * @var string
      *
-     * @ORM\Column(name="NOM_MODULE", type="string", length=30, nullable=true)
+     * @ORM\Column(name="NOM_MODULE", type="string", length=50, nullable=true)
      */
     private $nomModule;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="TYPE_MODULE", type="string", length=30, nullable=true)
+     * @ORM\Column(name="TYPE_MODULE", type="string", length=50, nullable=true)
      */
     private $typeModule;
 

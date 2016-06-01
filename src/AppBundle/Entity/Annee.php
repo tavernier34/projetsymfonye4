@@ -24,10 +24,32 @@ class Annee
     /**
      * @var string
      *
-     * @ORM\Column(name="LIBELLE", type="string", length=30, nullable=true)
+     * @ORM\Column(name="LIBELLE_ANNEE", type="string", length=20, nullable=true)
      */
-    private $libelle;
+    private $libelleAnnee;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Classe", inversedBy="idAnnee")
+     * @ORM\JoinTable(name="derouler",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="ID_ANNEE", referencedColumnName="ID_ANNEE")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="ID_CLASSE", referencedColumnName="ID_CLASSE")
+     *   }
+     * )
+     */
+    private $idClasse;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->idClasse = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
 
     /**
@@ -41,26 +63,60 @@ class Annee
     }
 
     /**
-     * Set libelle
+     * Set libelleAnnee
      *
-     * @param string $libelle
+     * @param string $libelleAnnee
      *
      * @return Annee
      */
-    public function setLibelle($libelle)
+    public function setLibelleAnnee($libelleAnnee)
     {
-        $this->libelle = $libelle;
+        $this->libelleAnnee = $libelleAnnee;
 
         return $this;
     }
 
     /**
-     * Get libelle
+     * Get libelleAnnee
      *
      * @return string
      */
-    public function getLibelle()
+    public function getLibelleAnnee()
     {
-        return $this->libelle;
+        return $this->libelleAnnee;
+    }
+
+    /**
+     * Add idClasse
+     *
+     * @param \AppBundle\Entity\Classe $idClasse
+     *
+     * @return Annee
+     */
+    public function addIdClasse(\AppBundle\Entity\Classe $idClasse)
+    {
+        $this->idClasse[] = $idClasse;
+
+        return $this;
+    }
+
+    /**
+     * Remove idClasse
+     *
+     * @param \AppBundle\Entity\Classe $idClasse
+     */
+    public function removeIdClasse(\AppBundle\Entity\Classe $idClasse)
+    {
+        $this->idClasse->removeElement($idClasse);
+    }
+
+    /**
+     * Get idClasse
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getIdClasse()
+    {
+        return $this->idClasse;
     }
 }

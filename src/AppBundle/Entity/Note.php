@@ -43,16 +43,6 @@ class Note
     private $dateNote;
 
     /**
-     * @var \Module
-     *
-     * @ORM\ManyToOne(targetEntity="Module")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="ID_MODULE", referencedColumnName="ID_MODULE")
-     * })
-     */
-    private $idModule;
-
-    /**
      * @var \Eleve
      *
      * @ORM\ManyToOne(targetEntity="Eleve")
@@ -61,6 +51,16 @@ class Note
      * })
      */
     private $idEleve;
+
+    /**
+     * @var \Module
+     *
+     * @ORM\ManyToOne(targetEntity="Module")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="ID_MODULE", referencedColumnName="ID_MODULE")
+     * })
+     */
+    private $idModule;
 
 
 
@@ -147,30 +147,6 @@ class Note
     }
 
     /**
-     * Set idModule
-     *
-     * @param \AppBundle\Entity\Module $idModule
-     *
-     * @return Note
-     */
-    public function setIdModule(\AppBundle\Entity\Module $idModule = null)
-    {
-        $this->idModule = $idModule;
-
-        return $this;
-    }
-
-    /**
-     * Get idModule
-     *
-     * @return \AppBundle\Entity\Module
-     */
-    public function getIdModule()
-    {
-        return $this->idModule;
-    }
-
-    /**
      * Set idEleve
      *
      * @param \AppBundle\Entity\Eleve $idEleve
@@ -192,5 +168,29 @@ class Note
     public function getIdEleve()
     {
         return $this->idEleve;
+    }
+
+    /**
+     * Set idModule
+     *
+     * @param \AppBundle\Entity\Module $idModule
+     *
+     * @return Note
+     */
+    public function setIdModule(\AppBundle\Entity\Module $idModule = null)
+    {
+        $this->idModule = $idModule;
+
+        return $this;
+    }
+
+    /**
+     * Get idModule
+     *
+     * @return \AppBundle\Entity\Module
+     */
+    public function getIdModule()
+    {
+        return $this->idModule;
     }
 }

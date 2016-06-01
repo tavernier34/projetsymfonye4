@@ -10,8 +10,12 @@
     <field name="datedebutAbsence" type="date" column="DATEDEBUT_ABSENCE" nullable="true"/>
     <field name="datefinAbsence" type="date" column="DATEFIN_ABSENCE" nullable="true"/>
     <field name="justificatif" type="boolean" column="JUSTIFICATIF" nullable="true"/>
-    <field name="motif" type="string" column="MOTIF" length="255" nullable="true"/>
-    <many-to-one field="idPersonne" target-entity="Personne">
+    <field name="motif" type="string" column="MOTIF" length="255" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <many-to-one field="idPersonne" target-entity="Personne" fetch="LAZY">
       <join-columns>
         <join-column name="ID_PERSONNE" referenced-column-name="ID_PERSONNE"/>
       </join-columns>

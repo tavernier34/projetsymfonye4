@@ -4,8 +4,16 @@
     <id name="idModule" type="integer" column="ID_MODULE">
       <generator strategy="IDENTITY"/>
     </id>
-    <field name="nomModule" type="string" column="NOM_MODULE" length="30" nullable="true"/>
-    <field name="typeModule" type="string" column="TYPE_MODULE" length="30" nullable="true"/>
-    <many-to-many field="idProfesseur" target-entity="Professeur" mapped-by="idModule"/>
+    <field name="nomModule" type="string" column="NOM_MODULE" length="50" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="typeModule" type="string" column="TYPE_MODULE" length="50" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <many-to-many field="idProfesseur" target-entity="Professeur" mapped-by="idModule" fetch="LAZY"/>
   </entity>
 </doctrine-mapping>

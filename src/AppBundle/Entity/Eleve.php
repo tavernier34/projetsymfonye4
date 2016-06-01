@@ -48,9 +48,9 @@ class Eleve
     private $ville;
 
     /**
-     * @var integer
+     * @var string
      *
-     * @ORM\Column(name="TELEPHONE", type="integer", nullable=true)
+     * @ORM\Column(name="TELEPHONE", type="string", length=10, nullable=true)
      */
     private $telephone;
 
@@ -69,16 +69,6 @@ class Eleve
     private $password;
 
     /**
-     * @var \Classe
-     *
-     * @ORM\ManyToOne(targetEntity="Classe")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="ID_CLASSE", referencedColumnName="ID_CLASSE")
-     * })
-     */
-    private $idClasse;
-
-    /**
      * @var \Personne
      *
      * @ORM\Id
@@ -89,6 +79,16 @@ class Eleve
      * })
      */
     private $idEleve;
+
+    /**
+     * @var \Classe
+     *
+     * @ORM\ManyToOne(targetEntity="Classe")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="ID_CLASSE", referencedColumnName="ID_CLASSE")
+     * })
+     */
+    private $idClasse;
 
 
 
@@ -215,7 +215,7 @@ class Eleve
     /**
      * Set telephone
      *
-     * @param integer $telephone
+     * @param string $telephone
      *
      * @return Eleve
      */
@@ -229,7 +229,7 @@ class Eleve
     /**
      * Get telephone
      *
-     * @return integer
+     * @return string
      */
     public function getTelephone()
     {
@@ -285,30 +285,6 @@ class Eleve
     }
 
     /**
-     * Set idClasse
-     *
-     * @param \AppBundle\Entity\Classe $idClasse
-     *
-     * @return Eleve
-     */
-    public function setIdClasse(\AppBundle\Entity\Classe $idClasse = null)
-    {
-        $this->idClasse = $idClasse;
-
-        return $this;
-    }
-
-    /**
-     * Get idClasse
-     *
-     * @return \AppBundle\Entity\Classe
-     */
-    public function getIdClasse()
-    {
-        return $this->idClasse;
-    }
-
-    /**
      * Set idEleve
      *
      * @param \AppBundle\Entity\Personne $idEleve
@@ -330,5 +306,29 @@ class Eleve
     public function getIdEleve()
     {
         return $this->idEleve;
+    }
+
+    /**
+     * Set idClasse
+     *
+     * @param \AppBundle\Entity\Classe $idClasse
+     *
+     * @return Eleve
+     */
+    public function setIdClasse(\AppBundle\Entity\Classe $idClasse = null)
+    {
+        $this->idClasse = $idClasse;
+
+        return $this;
+    }
+
+    /**
+     * Get idClasse
+     *
+     * @return \AppBundle\Entity\Classe
+     */
+    public function getIdClasse()
+    {
+        return $this->idClasse;
     }
 }

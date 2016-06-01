@@ -4,6 +4,11 @@
     <id name="idClasse" type="integer" column="ID_CLASSE">
       <generator strategy="IDENTITY"/>
     </id>
-    <field name="libelleClasse" type="string" column="LIBELLE_CLASSE" length="20" nullable="true"/>
+    <field name="libelleClasse" type="string" column="LIBELLE_CLASSE" length="20" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <many-to-many field="idAnnee" target-entity="Annee" mapped-by="idClasse" fetch="LAZY"/>
   </entity>
 </doctrine-mapping>

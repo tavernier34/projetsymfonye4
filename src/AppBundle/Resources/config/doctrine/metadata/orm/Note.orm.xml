@@ -8,17 +8,25 @@
     <id name="idNote" type="integer" column="ID_NOTE">
       <generator strategy="IDENTITY"/>
     </id>
-    <field name="note" type="integer" column="NOTE" nullable="true"/>
-    <field name="valeurmax" type="integer" column="VALEURMAX" nullable="true"/>
+    <field name="note" type="integer" column="NOTE" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="valeurmax" type="integer" column="VALEURMAX" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
     <field name="dateNote" type="date" column="DATE_NOTE" nullable="true"/>
-    <many-to-one field="idEleve" target-entity="Eleve">
-      <join-columns>
-        <join-column name="ID_ELEVE" referenced-column-name="ID_ELEVE"/>
-      </join-columns>
-    </many-to-one>
-    <many-to-one field="idModule" target-entity="Module">
+    <many-to-one field="idModule" target-entity="Module" fetch="LAZY">
       <join-columns>
         <join-column name="ID_MODULE" referenced-column-name="ID_MODULE"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idEleve" target-entity="Eleve" fetch="LAZY">
+      <join-columns>
+        <join-column name="ID_ELEVE" referenced-column-name="ID_ELEVE"/>
       </join-columns>
     </many-to-one>
   </entity>

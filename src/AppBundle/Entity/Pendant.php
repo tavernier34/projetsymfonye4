@@ -13,6 +13,18 @@ use Doctrine\ORM\Mapping as ORM;
 class Pendant
 {
     /**
+     * @var \Semestre
+     *
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="Semestre")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="ID_SEMESTRE", referencedColumnName="ID_SEMESTRE")
+     * })
+     */
+    private $idSemestre;
+
+    /**
      * @var \Module
      *
      * @ORM\Id
@@ -36,19 +48,31 @@ class Pendant
      */
     private $idClasse;
 
+
+
     /**
-     * @var \Semestre
+     * Set idSemestre
      *
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="Semestre")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="ID_SEMESTRE", referencedColumnName="ID_SEMESTRE")
-     * })
+     * @param \AppBundle\Entity\Semestre $idSemestre
+     *
+     * @return Pendant
      */
-    private $idSemestre;
+    public function setIdSemestre(\AppBundle\Entity\Semestre $idSemestre)
+    {
+        $this->idSemestre = $idSemestre;
 
+        return $this;
+    }
 
+    /**
+     * Get idSemestre
+     *
+     * @return \AppBundle\Entity\Semestre
+     */
+    public function getIdSemestre()
+    {
+        return $this->idSemestre;
+    }
 
     /**
      * Set idModule
@@ -96,29 +120,5 @@ class Pendant
     public function getIdClasse()
     {
         return $this->idClasse;
-    }
-
-    /**
-     * Set idSemestre
-     *
-     * @param \AppBundle\Entity\Semestre $idSemestre
-     *
-     * @return Pendant
-     */
-    public function setIdSemestre(\AppBundle\Entity\Semestre $idSemestre)
-    {
-        $this->idSemestre = $idSemestre;
-
-        return $this;
-    }
-
-    /**
-     * Get idSemestre
-     *
-     * @return \AppBundle\Entity\Semestre
-     */
-    public function getIdSemestre()
-    {
-        return $this->idSemestre;
     }
 }

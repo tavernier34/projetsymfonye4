@@ -10,5 +10,4 @@ namespace AppBundle\Entity;
  */
 class NoteRepository extends \Doctrine\ORM\EntityRepository
 {
-    
 }

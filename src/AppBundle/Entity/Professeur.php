@@ -48,9 +48,9 @@ class Professeur
     private $ville;
 
     /**
-     * @var integer
+     * @var string
      *
-     * @ORM\Column(name="TELEPHONE", type="integer", nullable=true)
+     * @ORM\Column(name="TELEPHONE", type="string", length=10, nullable=true)
      */
     private $telephone;
 
@@ -227,7 +227,7 @@ class Professeur
     /**
      * Set telephone
      *
-     * @param integer $telephone
+     * @param string $telephone
      *
      * @return Professeur
      */
@@ -241,7 +241,7 @@ class Professeur
     /**
      * Get telephone
      *
-     * @return integer
+     * @return string
      */
     public function getTelephone()
     {

@@ -28,6 +28,20 @@ class Classe
      */
     private $libelleClasse;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Annee", mappedBy="idClasse")
+     */
+    private $idAnnee;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->idAnnee = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
 
     /**
@@ -62,5 +76,39 @@ class Classe
     public function getLibelleClasse()
     {
         return $this->libelleClasse;
+    }
+
+    /**
+     * Add idAnnee
+     *
+     * @param \AppBundle\Entity\Annee $idAnnee
+     *
+     * @return Classe
+     */
+    public function addIdAnnee(\AppBundle\Entity\Annee $idAnnee)
+    {
+        $this->idAnnee[] = $idAnnee;
+
+        return $this;
+    }
+
+    /**
+     * Remove idAnnee
+     *
+     * @param \AppBundle\Entity\Annee $idAnnee
+     */
+    public function removeIdAnnee(\AppBundle\Entity\Annee $idAnnee)
+    {
+        $this->idAnnee->removeElement($idAnnee);
+    }
+
+    /**
+     * Get idAnnee
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getIdAnnee()
+    {
+        return $this->idAnnee;
     }
 }

@@ -19,7 +19,6 @@ class EleveRepository extends \Doctrine\ORM\EntityRepository
                 ')
             ->getResult();
     }
-
     public function findAllAbsences()
     {
         return $this->getEntityManager()

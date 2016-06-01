@@ -6,6 +6,10 @@
     </id>
     <field name="datedebutSemestre" type="date" column="DATEDEBUT_SEMESTRE" nullable="true"/>
     <field name="datefinSemestre" type="date" column="DATEFIN_SEMESTRE" nullable="true"/>
-    <field name="anneeSemestre" type="integer" column="ANNEE_SEMESTRE" nullable="true"/>
+    <field name="anneeSemestre" type="integer" column="ANNEE_SEMESTRE" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
   </entity>
 </doctrine-mapping>
