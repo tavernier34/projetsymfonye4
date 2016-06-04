@@ -31,10 +31,10 @@ framework:
     http_method_override: true
 
 
-fos_user:
-    db_driver: orm
-    firewall_name: main
-    user_class: Utilisateurs\UtilisateursBundle\Entity\Utilisateurs
+#fos_user:
+#    db_driver: orm
+#    firewall_name: main
+#    user_class: Utilisateurs\UtilisateursBundle\Entity\Utilisateurs
 
 
 # Twig Configuration

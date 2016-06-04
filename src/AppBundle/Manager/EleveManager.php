@@ -26,11 +26,16 @@ class EleveManager
         $this->repository = $em->getRepository('AppBundle:Eleve');
     }
 
-
-    public function loadAllNotes()
+    public function loadAllModules()
     {
+        $modules = $this->repository->findAllModules();
 
-        $notes = $this->repository->findAllNotes();
+        return $modules;
+    }
+    
+    public function loadAllNotes($id)
+    {
+        $notes = $this->repository->findAllNotes($id);
 
         return $notes;
     }
@@ -42,4 +47,11 @@ class EleveManager
 
         return $absences;
     }
+    
+/*    public function loadPatronyme()
+    {
+        $patronyme = $this->repository->getPatronyme();
+        
+        return $patronyme;
+    }*/
 }

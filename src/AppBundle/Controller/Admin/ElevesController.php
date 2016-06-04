@@ -19,6 +19,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use AppBundle\Entity\Eleve;
 use AppBundle\Entity\Classe;
 use AppBundle\Entity\Absence;
+use AppBundle\Entity\Module;
 use AppBundle\Manager\EleveManager;
 
 
@@ -45,9 +46,17 @@ class ElevesController extends Controller
     public function noteAction()
     {
         // Obtention du manager puis des notes d'un éleve
-        $notes = $this->getManager()->loadAllNotes();
+        $modules = $this->getManager()->loadAllModules();
 
-        return $this->render('admin/eleve/note.html.twig', array("arrayNotes" => $notes));
+
+        foreach ($modules as $module){
+            $notes = $this->getManager()->loadAllNotes($module["idModule"]);
+            foreach ($notes as $note) {
+                $moduleNote[$module["idModule"]][] = [$note["note"]];
+            }
+        }
+
+        return $this->render('admin/eleve/note.html.twig',array("arrayModules" => $modules, "arrayNotes" => $moduleNote));
     }
 
     /**

@@ -12,26 +12,30 @@
 
         <table>
             <thead>
-            <th>Nom</th>
-            <th>Prenom</th>
             <th>Matiere</th>
             <th>Note</th>
 
             </thead>
-            {% for note in arrayNotes %}
+
             <tbody>
+        {#J'arrive à afficher chaque module mais pas leur notes respectives
+        cf. noteAction dans le ElevesController qui appelle les différentes fonctions loadxxx du EleveManager qui exécute les requêtes du EleveRepository
+        #}
+            {% for module in arrayModules %}
             <tr>
-                <td>{{ note.nom }}</td>
-                <td>{{ note.prenom }}</td>
-                <td>{{ note.nomModule }}</td>
-
-                <td>{{ note.note }}</td>
-
-
+                <td>{{ module.nomModule }}</td>
+                <td>
+                    {% for key in arrayNotes %}
+                        {{ dump(key) }}
+                            {#{% for note in value %}#}
+                            {#{{ dump(note) }}&nbsp;&nbsp;&nbsp;&nbsp;#}
+                            {#{% endfor %}#}
+                    {% endfor %}
+                </td>
             </tr>
-            {% else %}
-                <tr><td>Vous n'avez pas encore de classe(s).</td></tr>
             {% endfor %}
+
+{{ dump (arrayNotes) }}
             </tbody>
         </table>
     </div>

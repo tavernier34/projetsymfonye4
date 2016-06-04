@@ -10,22 +10,52 @@ namespace AppBundle\Entity;
  */
 class EleveRepository extends \Doctrine\ORM\EntityRepository
 {
-    public function findAllNotes()
+    public function findAllModules()
     {
         return $this->getEntityManager()
-            ->createQuery('SELECT n.note, n.dateNote, el.prenom, el.nom, m.nomModule
-                FROM AppBundle:Note n, AppBundle:Module m, AppBundle:Eleve el WHERE el.idEleve=n.idEleve AND n.idModule=m.idModule
+            ->createQuery('SELECT DISTINCT m.nomModule, m.idModule
+                FROM AppBundle:Note n, AppBundle:Module m, AppBundle:Eleve el 
+                WHERE el.idEleve=n.idEleve 
+                AND n.idModule=m.idModule
+                AND el.idEleve = 1
                 
                 ')
             ->getResult();
     }
+
+    public function findAllNotes($id)
+    {
+        return $this->getEntityManager()
+            ->createQuery("SELECT n.note
+                FROM AppBundle:Note n, AppBundle:Module m, AppBundle:Eleve el 
+                WHERE el.idEleve=n.idEleve 
+                AND n.idModule=m.idModule
+                AND el.idEleve = 1
+                AND m.idModule = '$id'
+                
+                ")
+            ->getResult();
+    }
+    
     public function findAllAbsences()
     {
         return $this->getEntityManager()
             ->createQuery('SELECT a.justificatif, a.motif
-                FROM AppBundle:Absence a, AppBundle:Personne p WHERE a.idPersonne=p.idPersonne 
+                FROM AppBundle:Absence a, AppBundle:Personne p 
+                WHERE a.idPersonne=p.idPersonne 
                 
                 ')
             ->getResult();
     }
+    
+/*    public function getPatronyme()
+    {
+        return $this->getEntityManager()
+            ->createQuery('SELECT nom, prenom
+                FROM AppBundle:Eleve, AppBundle:Personne
+                WHERE idEleve = idPersonne
+                AND idPersonne = 1
+                ')
+            ->getResult();
+    }*/
 }
