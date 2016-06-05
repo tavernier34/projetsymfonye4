@@ -14,16 +14,17 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
 
     </head>
+    {% block body %}{% endblock %}
     <body>
     {% javascripts
-    '@AppBundle/Resources/public/js/note.js'
+    '@AppBundle/Resources/public/js/jquery.js'
 
 
     %}
     <script src="{{ asset_url }}"></script>
     <link rel="stylesheet" href="{{ asset_url }}" />
     {% endjavascripts %}
-        {% block body %}{% endblock %}
+
         {% block javascripts %}{% endblock %}
     </body>
 

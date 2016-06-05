@@ -11,14 +11,14 @@ $(function () {
         var idNote = oTR.attr("id").substring(4);
         // R�cup�ration du titre
         var titre = oTR.find("#titre").html();
-
+        alert('ok');
         if (idNote != '' && confirm("Voulez-vous supprimer la note '" + titre + "' ? "))
         {
             // Affiche l'image d'attente
             $('#loader').show('slow', null);
-
+            alert('rentre');
             // Perform the ajax post
-            /*$.post("/admin/film/delete", { "id": idFilm },
+            /*$.post("/admin/professeur/delete", { "id": idNote },
              function (data) {
              // Successful requests get here
              if (data.status == 0) {
@@ -31,7 +31,7 @@ $(function () {
              $('#update-message').show('slow', null).delay(6000).hide('slow'); 
              });*/
             $.ajax({
-                url: "/app_dev.php/admin/professeur/delete",
+                url: "/projetsymfonye4/web/app_dev.php/admin/professeur/delete",
                 type: "post",
                 data: { "id": idNote },
                 success: function(data){
@@ -45,7 +45,7 @@ $(function () {
                     $('#update-message').show('slow', null).delay(6000).hide('slow');
                 },
                 error:function(){
-                    alert("Erreur d'acc�s � la m�thode de suppression");
+                    alert("Erreur d'accès à la méthode de suppression");
                 }
             });
             // Cache l'image d'attente

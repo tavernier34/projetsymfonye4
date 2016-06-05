@@ -54,9 +54,9 @@ class NoteManager
      *
      * @param Integer $noteId
      */
-    public function removeNote(Note $note)
+    public function removeNote(Note $noteId)
     {
-        $this->entityManager->remove($note);
+        $this->entityManager->remove($noteId);
         $this->entityManager->flush();
     }
     
