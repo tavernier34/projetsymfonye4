@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}
+    Liste des employées
+{% endblock %}
+
+{% block body %}
+    <div class="tableau">
+        <h1>Liste des matières de : </h1>
+
+        <table>
+            <thead>
+            <th>Matière</th>
+            <th>Moyenne de la classe</th>
+            <th>Voir mes élèves</th>
+
+            </thead>
+
+            <tbody>
+            {% for key, libelle in arrayModule %}
+                <tr>
+                    <td>
+                        {% for lib, value in libelle %}
+                            {{ lib }}
+                        {% endfor %}
+                    </td>
+                    <td>
+                        {% for lib, value in libelle %}
+                            {% for unite, unite in value %}
+                                {{ unite }}
+                            {% endfor %}
+                        {% endfor %}
+                    </td>
+                    <td>
+                        {% for value in libelle %}
+                        {% for unite in value %}
+                        {% for unit in unite %}
+                        {% for moyenne in unit %}
+                            <a href="{{ path('admin_professeur_listeEleve', { 'idModule': key , 'idClasse': moyenne}) }}">
+                                Voir
+                            </a>
+                        {% endfor %}
+                        {% endfor %}
+                        {% endfor %}
+                        {% endfor %}
+                    </td>
+                </tr>
+            {% endfor %}
+
+            {{ dump(arrayModule) }}
+
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}
+

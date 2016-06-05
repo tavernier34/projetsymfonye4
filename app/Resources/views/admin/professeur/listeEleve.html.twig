@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}
+    Liste des employées
+{% endblock %}
+
+{% block body %}
+    <div class="tableau">
+        <h1>Liste des élèves de : </h1>
+
+        <table>
+            <thead>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Notes</th>
+            <th>Moyenne</th>
+
+            </thead>
+            {% for key, value in arrayEleves %}
+            <tbody>
+            <tr>
+                <td>{{ key }}</td>
+                <td>
+                    {% for prenom, libelle in value %}
+                        {{ prenom }}
+                    {% endfor %}
+                </td>
+                <td>
+                    {% for prenom, libelle in value %}
+                        {% for moyenne, unite in libelle %}
+                            {% for note, unit in unite %}
+                                {% for valeur, val in unit %}
+                                    {{ valeur }}
+                                    {% for nombre, nb in val %}
+                                        <a href="{{ path('admin_professeur_editnote', { 'id': nb }) }}">Modifier</a>
+                                        <a href="#">Supprimer</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    {% endfor %}
+                                {% endfor %}
+                            {% endfor %}
+                        {% endfor %}
+                    {% endfor %}
+                </td>
+                <td>
+                    {% for prenom, libelle in value %}
+                        {% for moyenne, unite in libelle %}
+                            {{ moyenne }}
+                        {% endfor %}
+                    {% endfor %}
+                </td>
+{{ dump(arrayEleves) }}
+
+            </tr>
+            {% else %}
+                <tr><td>Vous n'avez pas encore de classe(s).</td></tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}
+

@@ -43,6 +43,7 @@ class EleveRepository extends \Doctrine\ORM\EntityRepository
             ->createQuery('SELECT a.justificatif, a.motif
                 FROM AppBundle:Absence a, AppBundle:Personne p 
                 WHERE a.idPersonne=p.idPersonne 
+                AND p.idPersonne = 1
                 
                 ')
             ->getResult();

@@ -11,21 +11,37 @@
 
     <table>
         <thead>
-        <th>Nom prof</th>
-        <th>Libelle Classe</th>
+        <th>Classe</th>
+        <th>Moyenne de la classe</th>
+        <th></th>
 
         </thead>
-        {% for classe in arrayClasses %}
+
         <tbody>
-        <tr>
-            <td>{{ classe.nom }}</td>
-            <td>{{ classe.libelleClasse }}</td>
-
-
-        </tr>
-        {% else %}
-            <tr><td>Vous n'avez pas encore de classe(s).</td></tr>
+        {% for key, libelle in arrayClasses %}
+            <tr>
+                <td>
+                    {% for lib, value in libelle %}
+                        {{ lib }}
+                    {% endfor %}
+                </td>
+                <td>
+                    {% for value in libelle %}
+                        {% for unite in value %}
+                            {% for unit in unite %}
+                                {{ unit }}
+                            {% endfor %}
+                        {% endfor %}
+                    {% endfor %}
+                </td>
+                <td>
+                    <a href="{{ path('admin_professeur_listeMatiere', { 'idClasse': key }) }}">
+                        Voir
+                    </a>
+                </td>
+            </tr>
         {% endfor %}
+{{ dump(arrayClasses) }}
         </tbody>
     </table>
         </div>
