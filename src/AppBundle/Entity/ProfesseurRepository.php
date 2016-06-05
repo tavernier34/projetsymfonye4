@@ -10,6 +10,18 @@ namespace AppBundle\Entity;
  */
 class ProfesseurRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findAllClasses()
+    {
+        return $this->getEntityManager()
+            ->createQuery('SELECT cl.libelleClasse, p.nom
+                FROM AppBundle:Professeur p, AppBundle:Module m, AppBundle:Pendant pe,AppBundle:Classe cl  WHERE p.idProfesseur=m.idModule  and m.idModule=pe.idModule and pe.idClasse=cl.idClasse
+
+                ')
+            ->getResult();
+    }
+   
+
+
     public function findAllAbsences()
     {
         return $this->getEntityManager()
@@ -19,4 +31,24 @@ class ProfesseurRepository extends \Doctrine\ORM\EntityRepository
                 ')
             ->getResult();
     }
+
+    public function findAllNotes()
+    {
+        return $this->getEntityManager()
+            ->createQuery('SELECT p.nom,p.prenom, n.note, m.nomModule
+                FROM AppBundle:Note n, AppBundle:Professeur p ,AppBundle:Module m WHERE p.idProfesseur=m.idModule  and m.idModule=n.idModule
+                
+                ')
+            ->getResult();
+    }
+    public function findAllElevesByClasse(){
+        return $this->getEntityManager()
+            ->createQuery('SELECT cl.libelleClasse, e.nom, e.prenom
+                FROM AppBundle:Eleve e, AppBundle:Classe cl  WHERE cl.idClasse=e.idClasse 
+
+                ')
+            ->getResult();
+    }
+
+    
 }

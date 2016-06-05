@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Pendant
  *
  * @ORM\Table(name="PENDANT", indexes={@ORM\Index(name="FK_PENDANT2", columns={"ID_CLASSE"}), @ORM\Index(name="FK_PENDANT3", columns={"ID_SEMESTRE"}), @ORM\Index(name="IDX_613D94C5A16CB4B6", columns={"ID_MODULE"})})
- * @ORM\Entity(repositoryClass="AppBundle\Entity\PendantRepository")
+ * @ORM\Entity
  */
 class Pendant
 {

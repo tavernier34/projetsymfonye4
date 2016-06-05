@@ -25,7 +25,7 @@ class ProfesseurManager
     public function __construct($em)
     {
         $this->entityManager = $em;
-        $this->repository = $em->getRepository('AppBundle:Classe');
+        $this->repository = $em->getRepository('AppBundle:Professeur');
     }
 
     public function loadAllClasses()
@@ -43,4 +43,6 @@ class ProfesseurManager
 
         return $absences;
     }
+
+    
 }

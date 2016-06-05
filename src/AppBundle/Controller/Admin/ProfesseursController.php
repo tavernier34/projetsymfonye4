@@ -10,6 +10,7 @@
 namespace AppBundle\Controller\Admin;
 
 
+use AppBundle\Entity\Note;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation;
@@ -20,6 +21,9 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 use AppBundle\Entity\Professeur;
 use AppBundle\Manager\ProfesseurManager;
+
+
+
 
 
 class ProfesseursController extends Controller
@@ -44,7 +48,7 @@ class ProfesseursController extends Controller
      * @Route("/admin/professeur/classe", name="admin_professeur_listeClasse")
      */
     
-    public function ClasseAction()
+    public function classeAction()
     {
     // Obtention du manager puis des classes
         $classes = $this->getManager()->loadAllClasses();
@@ -63,4 +67,6 @@ class ProfesseursController extends Controller
 
         return $this->render('admin/absence.html.twig', array("arrayAbsences" => $absences));
     }
+
+   
 }

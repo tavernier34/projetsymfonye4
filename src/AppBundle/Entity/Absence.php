@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Absence
  *
  * @ORM\Table(name="ABSENCE", indexes={@ORM\Index(name="FK_POSSEDE", columns={"ID_PERSONNE"})})
- * @ORM\Entity(repositoryClass="AppBundle\Entity\AbsenceRepository")
+ * @ORM\Entity
  */
 class Absence
 {

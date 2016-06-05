@@ -48,14 +48,12 @@ class EleveRepository extends \Doctrine\ORM\EntityRepository
             ->getResult();
     }
     
-/*    public function getPatronyme()
+   public function findAllEleves()
     {
         return $this->getEntityManager()
-            ->createQuery('SELECT nom, prenom
-                FROM AppBundle:Eleve, AppBundle:Personne
-                WHERE idEleve = idPersonne
-                AND idPersonne = 1
+            ->createQuery('SELECT e.nom, e.prenom
+                FROM AppBundle:Eleve e
                 ')
             ->getResult();
-    }*/
+    }
 }

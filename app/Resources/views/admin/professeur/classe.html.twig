@@ -11,12 +11,14 @@
 
     <table>
         <thead>
+        <th>Nom prof</th>
         <th>Libelle Classe</th>
 
         </thead>
         {% for classe in arrayClasses %}
         <tbody>
         <tr>
+            <td>{{ classe.nom }}</td>
             <td>{{ classe.libelleClasse }}</td>
 
 
