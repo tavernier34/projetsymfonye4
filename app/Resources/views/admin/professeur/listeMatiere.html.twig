@@ -34,21 +34,20 @@
                     </td>
                     <td>
                         {% for value in libelle %}
-                        {% for unite in value %}
-                        {% for unit in unite %}
-                        {% for moyenne in unit %}
-                            <a href="{{ path('admin_professeur_listeEleve', { 'idModule': key , 'idClasse': moyenne}) }}">
-                                Voir
-                            </a>
-                        {% endfor %}
-                        {% endfor %}
-                        {% endfor %}
+                            {% for unite in value %}
+                                {% for unit in unite %}
+                                    {% for moyenne in unit %}
+                                        <a href="{{ path('admin_professeur_listeEleve', { 'idModule': key , 'idClasse': moyenne}) }}">
+                                            Voir
+                                        </a>
+                                    {% endfor %}
+                                {% endfor %}
+                            {% endfor %}
                         {% endfor %}
                     </td>
                 </tr>
             {% endfor %}
 
-            {{ dump(arrayModule) }}
 
             </tbody>
         </table>

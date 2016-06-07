@@ -100,7 +100,7 @@ class ProfesseurRepository extends \Doctrine\ORM\EntityRepository
     public function findAllNotes($idClasse, $idModule, $idEleve)
     {
         return $this->getEntityManager()
-            ->createQuery("SELECT n.note, n.idNote as idNote
+            ->createQuery("SELECT n.note, n.idNote as idNote, n.dateNote
                 FROM AppBundle:Note n, AppBundle:Module m, AppBundle:Eleve el, AppBundle:Classe c, AppBundle:Pendant pe, AppBundle:Semestre s  
                 WHERE el.idEleve=n.idEleve 
                 AND n.idModule=m.idModule
