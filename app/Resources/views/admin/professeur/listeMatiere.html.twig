@@ -7,9 +7,14 @@
 
 {% block body %}
     <div class="tableau">
+        <ol class="breadcrumb">
+            <li><a href="{{ path('admin_professeur_homepage') }}">Accueil</a></li>
+            <li><a href="{{ path('admin_professeur_listeClasse') }}">Classe</a></li>
+            <li class="active">Matière</li>
+        </ol>
         <h1>Liste des matières de : </h1>
 
-        <table>
+        <table border="">
             <thead>
             <th>Matière</th>
             <th>Moyenne de la classe</th>
@@ -20,14 +25,16 @@
             <tbody>
             {% for key, libelle in arrayModule %}
                 <tr>
-                    <td>
+                    <td >
                         {% for lib, value in libelle %}
                             {{ lib }}
                         {% endfor %}
                     </td>
-                    <td>
+
                         {% for lib, value in libelle %}
                             {% for unite, unite in value %}
+                    <td {% if unite  < 10 %} style = "color : red"
+                    {% else %} style = "color : green" {{ unite }} {% endif %}>
                                 {{ unite }}
                             {% endfor %}
                         {% endfor %}
@@ -37,7 +44,7 @@
                             {% for unite in value %}
                                 {% for unit in unite %}
                                     {% for moyenne in unit %}
-                                        <a href="{{ path('admin_professeur_listeEleve', { 'idModule': key , 'idClasse': moyenne}) }}">
+                                        <a class="btn btn-info" href="{{ path('admin_professeur_listeEleve', { 'idModule': key , 'idClasse': moyenne}) }}">
                                             Voir
                                         </a>
                                     {% endfor %}

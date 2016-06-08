@@ -21,7 +21,7 @@ class ProfesseurType extends AbstractType
     {
         // Ajout des champs "classiques"$builder->add('resume', 'text', array('label' => 'Résumé'));
         $builder
-            ->add('note', 'text', array('label' => 'Note'));
+            ->add('note', 'text', array('label' => 'NOTE: '));
 
 
         // Ajout des champs liés à une table
@@ -29,14 +29,14 @@ class ProfesseurType extends AbstractType
         $builder->add('idModule', 'entity', array(
             'class' => 'AppBundle:Module',
             'required' =>true,
-            'label' => "Module",
+            'label' => "MODULE: ",
             'property' => 'typemodule',
         ));
 
         $builder->add('idEleve', 'entity', array(
             'class' => 'AppBundle:Eleve',
             'required' =>true,
-            'label' => "Eleve",
+            'label' => "ELEVE: ",
             'property' => 'nom',
         ));
 

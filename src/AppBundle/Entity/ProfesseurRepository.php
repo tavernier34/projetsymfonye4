@@ -112,6 +112,7 @@ class ProfesseurRepository extends \Doctrine\ORM\EntityRepository
                 AND el.idEleve = '$idEleve'
                 AND m.idModule = '$idModule'
                 
+                
                 ")
             ->getResult();
     }

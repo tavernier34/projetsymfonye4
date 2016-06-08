@@ -7,10 +7,14 @@
 
 {% block body %}
     <div class="tableau">
+        <ol class="breadcrumb">
+            <li><a href="{{ path('admin_professeur_homepage') }}">Accueil</a></li>
+            <li class="active">Classe</li>
+        </ol>
     <h1>Liste des classes de : </h1>
 
-    <table>
-        <thead>
+    <table class="table" id="cadre" border="" >
+        <thead class="thead-inverse">
         <th>Classe</th>
         <th>Moyenne de la classe</th>
         <th></th>
@@ -34,8 +38,8 @@
                         {% endfor %}
                     {% endfor %}
                 </td>
-                <td>
-                    <a href="{{ path('admin_professeur_listeMatiere', { 'idClasse': key }) }}">
+                <td >
+                    <a class="btn btn-info" href="{{ path('admin_professeur_listeMatiere', { 'idClasse': key }) }}">
                         Voir
                     </a>
                 </td>

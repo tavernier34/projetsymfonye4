@@ -2,25 +2,33 @@
 
 
 {% block title %}
-    Liste des employées
+    Liste des élèves
 {% endblock %}
 
 {% block body %}
+<div class="container" style="background-image:url('{{ asset('@AppBundle/Resources/public/css/images/photo.jpg') }}')">
     <div class="tableau">
+        <ol class="breadcrumb">
+            <li><a href="{{ path('admin_professeur_homepage') }}">Accueil</a></li>
+            <li><a href="{{ path('admin_professeur_listeClasse') }}">Classe</a></li>
+            <li class="active">Notes</li>
+        </ol>
         <h1>Liste des élèves de : </h1>
+        <a class="btn btn-success" href="{{ path('admin_professeur_addnote') }}">Ajouter une note</a>
 
-        <table border="||">
-            <thead>
-            <th>Nom</th>
+        <table class="table" border="">
+            <thead class="thead-inverse">
+            <tr>
+            <th scope="row">Nom</th>
             <th>Prénom</th>
             <th>Notes</th>
             <th>Moyenne</th>
-
+            </tr>
             </thead>
             {% for key, value in arrayEleves %}
             <tbody>
                 <tr>
-                    <td>
+                    <td class="nomeleve">
                         {{ value.nom }}
                     </td>
                     <td>
@@ -29,11 +37,13 @@
                     <td>
                         {% for index, valeur in value %}
                             {% for id, info in valeur %}
-                                {{ info.note }} ({{ info.date | date() }}) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a {% if info.note  < 10 %} style = "color : red"
+                                 {% else %} style = "color : green" {{ info.note }} {% endif %}  class="glyphicon glyphicon-pencil" href="{{ path('admin_professeur_editnote', { 'id': id }) }}">{{ info.note }} </a> ({{ info.date | date("d/m/Y") }}) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             {% endfor %}
                         {% endfor %}
                     </td>
-                    <td>
+                    <td {% if value.moyenne  < 10 %} style = "color : red"
+                    {% else %} style = "color : green" {{ value.moyenne }} {% endif %}>
                         {{ value.moyenne }}
                     </td>
 
@@ -41,9 +51,10 @@
             {% endfor %}
 
             </tbody>
-            {{ dump(arrayEleves) }}
+            {#{{ dump(arrayEleves) }}#}
         </table>
     </div>
 
 {% endblock %}
+
 

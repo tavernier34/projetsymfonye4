@@ -104,6 +104,7 @@ class ProfesseursController extends Controller
 //                    $moduleNote[$eleve["idEleve"]][$note["idNote"]][] = $note["note"];
                     $moduleNote[$eleve["idEleve"]]["notes"][$note["idNote"]]["date"] = $note["dateNote"];
                     $moduleNote[$eleve["idEleve"]]["notes"][$note["idNote"]]["note"] = $note["note"];
+                    
                 }
             }
         }
