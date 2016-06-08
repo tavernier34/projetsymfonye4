@@ -53,7 +53,64 @@ class ProfesseursController extends Controller
     // Obtention du manager puis des classes
         $classes = $this->getManager()->loadAllClasses();
 
-        return $this->render('admin/professeur/classe.html.twig', array("arrayClasses" => $classes));
+        foreach ($classes as $classe){
+            $moyennes = $this->getManager()->loadMoyennesClasses($classe["idClasse"]);
+            foreach ($moyennes as $moyenne) {
+                $moyenneClasse[$classe["idClasse"]][$classe["libelleClasse"]][] = [$moyenne["moyenne"]];
+            }
+        }
+
+        return $this->render('admin/professeur/classe.html.twig', array("arrayClasses" => $moyenneClasse));
+    }
+
+    /**
+     * @Route("/admin/professeur/classe/matiere/{idClasse}", name="admin_professeur_listeMatiere")
+     */
+
+    public function MatiereAction($idClasse)
+    {
+        // Obtention du manager puis des classes
+        $modules = $this->getManager()->loadAllModules($idClasse);
+
+        foreach ($modules as $module){
+            $moyennes = $this->getManager()->loadMoyennesClassesModules($idClasse, $module["idModule"]);
+            foreach ($moyennes as $moyenne) {
+                $moyenneModule[$module["idModule"]][$module["nomModule"]][$moyenne["moyenne"]][]=[$idClasse];
+            }
+        }
+
+        return $this->render('admin/professeur/listeMatiere.html.twig', array("arrayModule" => $moyenneModule));
+    }
+
+    /**
+     * @Route("/admin/professeur/classe/matiere/eleve/{idModule}/{idClasse}", name="admin_professeur_listeEleve")
+     */
+
+    public function EleveAction($idModule, $idClasse)
+    {
+        // Obtention du manager puis des classes
+        $eleves = $this->getManager()->loadAllElevesModule($idModule, $idClasse);
+
+        foreach ($eleves as $eleve){
+            $moyennes = $this->getManager()->loadMoyennesClassesModulesEleves($idClasse, $idModule, $eleve["idEleve"]);
+            foreach ($moyennes as $moyenne) {
+                $moduleNote[$eleve["idEleve"]]["nom"] = $eleve["nom"];
+                $moduleNote[$eleve["idEleve"]]["prenom"] = $eleve["prenom"];
+                $moduleNote[$eleve["idEleve"]]["moyenne"] = $moyenne["moyenne"];
+                $notes = $this->getManager()->loadAllNotes($idClasse, $idModule, $eleve["idEleve"]);
+                foreach ($notes as $note) {
+//                    $moduleNote[$eleve["idEleve"]][$note["idNote"]][] = $note["dateNote"];
+//                    $moduleNote[$eleve["idEleve"]]["date"] = $note["dateNote"];
+//                    $moduleNote[$eleve["idEleve"]][$note["idNote"]][] = $note["note"];
+                    $moduleNote[$eleve["idEleve"]]["notes"][$note["idNote"]]["date"] = $note["dateNote"];
+                    $moduleNote[$eleve["idEleve"]]["notes"][$note["idNote"]]["note"] = $note["note"];
+                }
+            }
+        }
+
+        return $this->render('admin/professeur/listeEleve.html.twig', array("arrayEleves" => $moduleNote));
+        
+        
     }
 
     /**

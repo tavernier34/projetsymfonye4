@@ -52,11 +52,12 @@ class ElevesController extends Controller
         foreach ($modules as $module){
             $notes = $this->getManager()->loadAllNotes($module["idModule"]);
             foreach ($notes as $note) {
-                $moduleNote[$module["idModule"]][] = [$note["note"]];
+                $moduleNote[$module["nomModule"]][] = [$note["note"]];
             }
         }
 
-        return $this->render('admin/eleve/note.html.twig',array("arrayModules" => $modules, "arrayNotes" => $moduleNote));
+
+        return $this->render('admin/eleve/note.html.twig',array("arrayNotes" => $moduleNote));
     }
 
     /**
@@ -68,6 +69,6 @@ class ElevesController extends Controller
         // Obtention du manager puis des absences d'un éleve
         $absences = $this->getManager()->loadAllAbsences();
 
-        return $this->render('admin/absence.html.twig', array("arrayAbsences" => $absences));
+        return $this->render('admin/eleve/absence.html.twig', array("arrayAbsences" => $absences));
     }
 }

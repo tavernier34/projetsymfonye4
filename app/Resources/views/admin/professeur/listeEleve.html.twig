@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}
+    Liste des employées
+{% endblock %}
+
+{% block body %}
+    <div class="tableau">
+        <h1>Liste des élèves de : </h1>
+
+        <table border="||">
+            <thead>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Notes</th>
+            <th>Moyenne</th>
+
+            </thead>
+            {% for key, value in arrayEleves %}
+            <tbody>
+                <tr>
+                    <td>
+                        {{ value.nom }}
+                    </td>
+                    <td>
+                        {{ value.prenom }}
+                    </td>
+                    <td>
+                        {% for index, valeur in value %}
+                            {% for id, info in valeur %}
+                                {{ info.note }} ({{ info.date | date() }}) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            {% endfor %}
+                        {% endfor %}
+                    </td>
+                    <td>
+                        {{ value.moyenne }}
+                    </td>
+
+                </tr>
+            {% endfor %}
+
+            </tbody>
+            {{ dump(arrayEleves) }}
+        </table>
+    </div>
+
+{% endblock %}
+
