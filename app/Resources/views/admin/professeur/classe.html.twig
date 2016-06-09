@@ -17,7 +17,7 @@
         <thead class="thead-inverse">
         <th>Classe</th>
         <th>Moyenne de la classe</th>
-        <th></th>
+
 
         </thead>
 
@@ -29,10 +29,12 @@
                         {{ lib }}
                     {% endfor %}
                 </td>
-                <td>
+
                     {% for value in libelle %}
                         {% for unite in value %}
                             {% for unit in unite %}
+                <td {% if unit  < 10 %} style = "color : red"
+                {% else %} style = "color : green" {{ unit }} {% endif %}>
                                 {{ unit }}
                             {% endfor %}
                         {% endfor %}
