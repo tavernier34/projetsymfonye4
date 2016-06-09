@@ -3,11 +3,21 @@ body {
 
     -webkit-font-smoothing: antialiased;
     font: normal 14px Roboto,arial,sans-serif;
+   background-color: rgba(0, 0, 0, 0.16);
 }
-
+.portail{
+    position: absolute;
+    margin-top: 5%;
+    margin-left: 27%;
+    font-family: "Arial Black";
+}
 .container {
     padding: 25px;
-    position: fixed;
+    position: absolute;
+    text-align: center;
+    margin-top: 10%;
+    left: 15%;
+    background-image: url("images/photo.jpg");
 }
 
 .form-login {
