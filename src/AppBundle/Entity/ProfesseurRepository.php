@@ -116,6 +116,26 @@ class ProfesseurRepository extends \Doctrine\ORM\EntityRepository
                 ")
             ->getResult();
     }
+    
+    public function getNomModule($idModule)
+    {
+        return $this->getEntityManager()
+            ->createQuery("SELECT m.nomModule
+            FROM AppBundle:Module m
+            WHERE m.idModule = '$idModule'
+            ")
+            ->getSingleResult();
+    }
+
+    public function getLibelleClasse($idClasse)
+    {
+        return $this->getEntityManager()
+            ->createQuery("SELECT cl.libelleClasse
+            FROM AppBundle:Classe cl
+            WHERE cl.idClasse = '$idClasse'
+            ")
+            ->getSingleResult();
+    }
 
     public function findAllEleves($idModule, $idClasse)
     {

@@ -21,8 +21,9 @@ class ProfesseurType extends AbstractType
     {
         // Ajout des champs "classiques"$builder->add('resume', 'text', array('label' => 'Résumé'));
         $builder
-            ->add('note', 'text', array('label' => 'NOTE: '));
-
+            ->add('note', 'text', array('label' => 'NOTE: '))
+            ->add('dateNote', 'date', array('label' => 'DATE'))
+        ->add('valeurmax', 'text', array('label' => 'Valeur Max'));
 
         // Ajout des champs liés à une table
 

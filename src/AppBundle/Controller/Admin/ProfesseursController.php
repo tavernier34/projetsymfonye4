@@ -78,8 +78,8 @@ class ProfesseursController extends Controller
                 $moyenneModule[$module["idModule"]][$module["nomModule"]][$moyenne["moyenne"]][]=[$idClasse];
             }
         }
-
-        return $this->render('admin/professeur/listeMatiere.html.twig', array("arrayModule" => $moyenneModule));
+        $libelleClasse = $this->getManager()->loadLibelleClasse($idClasse);
+        return $this->render('admin/professeur/listeMatiere.html.twig', array("arrayModule" => $moyenneModule, "libelleClasse" => $libelleClasse));
     }
 
     /**
@@ -108,8 +108,11 @@ class ProfesseursController extends Controller
                 }
             }
         }
+        
+        $nomModule = $this->getManager()->loadNomModule($idModule);
+        
 
-        return $this->render('admin/professeur/listeEleve.html.twig', array("arrayEleves" => $moduleNote));
+        return $this->render('admin/professeur/listeEleve.html.twig', array("arrayEleves" => $moduleNote, "idClasse" => $idClasse, "nomModule" => $nomModule));
         
         
     }

@@ -11,9 +11,12 @@
         <ol class="breadcrumb">
             <li><a href="{{ path('admin_professeur_homepage') }}">Accueil</a></li>
             <li><a href="{{ path('admin_professeur_listeClasse') }}">Classe</a></li>
+            <li><a href="{{ path('admin_professeur_listeMatiere', { "idClasse" : idClasse  }) }}">Matières</a></li>
+
             <li class="active">Notes</li>
         </ol>
-        <h1>Liste des élèves de : </h1>
+
+        <h1>Liste des élèves de : {{ nomModule["nomModule"] }}  </h1>
         <a class="btn btn-success" href="{{ path('admin_professeur_addnote') }}">Ajouter une note</a>
 
         <table class="table" border="">

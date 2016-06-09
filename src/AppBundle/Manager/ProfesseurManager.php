@@ -81,6 +81,20 @@ class ProfesseurManager
         return $notes;
     }
     
+    public function loadNomModule($idModule)
+    {
+        $nomModule = $this->repository->getNomModule($idModule);
+        
+        return $nomModule;
+    }
+
+    public function loadLibelleClasse($idClasse)
+    {
+        $libelleClasse = $this->repository->getLibelleClasse($idClasse);
+
+        return $libelleClasse;
+    }
+    
     public function loadAllModules($idClasse)
     {
         $modules = $this->repository->findAllModules($idClasse);

@@ -10,9 +10,9 @@
         <ol class="breadcrumb">
             <li><a href="{{ path('admin_professeur_homepage') }}">Accueil</a></li>
             <li><a href="{{ path('admin_professeur_listeClasse') }}">Classe</a></li>
-            <li class="active"></li>
+            <li class="active">Matières</li>
         </ol>
-        <h1>Liste des matières de : </h1>
+        <h1>Liste des matières de : {{ libelleClasse["libelleClasse"] }} </h1>
 
         <table border="">
             <thead>
