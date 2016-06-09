@@ -13,9 +13,15 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
+        $route = $this->generateUrl("login");
+
+        if($this->get("security.context")->isGranted('ROLE_ELEVE')) {
+            $route = $this->generateUrl("admin_eleve_homepage");
+        } elseif ($this->get("security.context")->isGranted('ROLE_PROFESSEUR')) {
+            $route = $this->generateUrl("admin_professeur_homepage");
+        }
+
         // replace this example code with whatever you need
-        return $this->render('default.html.twig', array(
-            'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
-        ));
+        return $this->redirect($route);
     }
 }
