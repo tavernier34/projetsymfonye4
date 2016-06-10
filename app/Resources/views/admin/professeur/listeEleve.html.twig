@@ -8,6 +8,7 @@
 {% block body %}
 <div class="container" style="background-image:url('{{ asset('@AppBundle/Resources/public/css/images/photo.jpg') }}')">
     <div class="tableau">
+        <a href="{{ path ('logout') }}">Déconnexion</a>
         <ol class="breadcrumb">
             <li><a href="{{ path('admin_professeur_homepage') }}">Accueil</a></li>
             <li><a href="{{ path('admin_professeur_listeClasse') }}">Classe</a></li>

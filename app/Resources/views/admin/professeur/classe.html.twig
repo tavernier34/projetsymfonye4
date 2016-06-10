@@ -2,14 +2,15 @@
 
 
 {% block title %}
-    Liste des employées
+    Liste des classes
 {% endblock %}
 
 {% block body %}
+    <a href="{{ path ('logout') }}">Déconnexion</a>
     <div class="tableau">
         <ol class="breadcrumb">
             <li><a href="{{ path('admin_professeur_homepage') }}">Accueil</a></li>
-            <li class="active">Classe</li>
+            <li class="active">Classe(s)</li>
         </ol>
     <h1>Liste des classes de : </h1>
 

@@ -50,8 +50,10 @@ class ProfesseursController extends Controller
     
     public function classeAction()
     {
+        $idProf = $this->getUser()->getIdPersonne();
     // Obtention du manager puis des classes
-        $classes = $this->getManager()->loadAllClasses();
+        $classes = $this->getManager()->loadAllClasses($idProf);
+        
 
         foreach ($classes as $classe){
             $moyennes = $this->getManager()->loadMoyennesClasses($classe["idClasse"]);
@@ -69,8 +71,9 @@ class ProfesseursController extends Controller
 
     public function MatiereAction($idClasse)
     {
+        $idProf = $this->getUser()->getIdPersonne();
         // Obtention du manager puis des classes
-        $modules = $this->getManager()->loadAllModules($idClasse);
+        $modules = $this->getManager()->loadAllModules($idClasse, $idProf);
 
         foreach ($modules as $module){
             $moyennes = $this->getManager()->loadMoyennesClassesModules($idClasse, $module["idModule"]);
@@ -78,6 +81,7 @@ class ProfesseursController extends Controller
                 $moyenneModule[$module["idModule"]][$module["nomModule"]][$moyenne["moyenne"]][]=[$idClasse];
             }
         }
+
         $libelleClasse = $this->getManager()->loadLibelleClasse($idClasse);
         return $this->render('admin/professeur/listeMatiere.html.twig', array("arrayModule" => $moyenneModule, "libelleClasse" => $libelleClasse));
     }

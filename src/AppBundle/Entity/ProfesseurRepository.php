@@ -10,7 +10,7 @@ namespace AppBundle\Entity;
  */
 class ProfesseurRepository extends \Doctrine\ORM\EntityRepository
 {
-    //        SELECT p.nom, m.nomModule, c.libelleClasse
+    //        SELECT c.libelleClasse, c.idClasse
 //                FROM AppBundle:Professeur p, AppBundle:Module m, AppBundle:Pendant pe, AppBundle:Classe c, AppBundle:Semestre s
 //                WHERE p.idProfesseur = m.idModule
 //    AND m.idModule = pe.idModule
@@ -18,27 +18,58 @@ class ProfesseurRepository extends \Doctrine\ORM\EntityRepository
 //    AND pe.idSemestre = s.idSemestre
 //    AND s.idSemestre = 1
 //    AND p.idProfesseur = 16
-    public function findAllClasses()
+//->select('p.nom, m.nomModule')
+//->from('AppBundle:Professeur','p' )
+//->innerJoin('p.idModule', 'm')
+//->where('p.idProfesseur = 16')
+//->getQuery()->getResult();
+    public function findAllClasses($idProf)
     {
         return $this->getEntityManager()
-            ->createQuery('SELECT c.libelleClasse, c.idClasse
-            FROM AppBundle:Classe c
-                ')
-            ->getResult();
+            ->createQueryBuilder()
+                ->select('p.nom, c.libelleClasse, c.idClasse')
+                ->from('AppBundle:Professeur','p' )
+                ->from('AppBundle:Pendant', 'pe' )
+                ->leftJoin('p.idModule', 'm')
+                ->leftJoin('pe.idModule', 'mp' )
+                ->leftJoin('pe.idClasse', 'c')
+                ->leftJoin('pe.idSemestre', 's' )
+                ->where('p.idProfesseur = :idProf' )
+                ->andWhere('pe.idModule = m.idModule')
+                ->andWhere('s.idSemestre = 1')
+                ->distinct()
+                ->setParameter('idProf', $idProf )
+                ->getQuery()->getResult();
     }
 
-    public function findAllModules($idClasse)
+    public function findAllModules($idClasse, $idProf)
     {
         return $this->getEntityManager()
-            ->createQuery("SELECT m.nomModule, m.idModule
-                FROM AppBundle:Module m, AppBundle:Pendant pe, AppBundle:Classe c, AppBundle:Semestre s  
-                WHERE c.idClasse = pe.idClasse
-                AND pe.idModule = m.idModule
-                AND pe.idSemestre = s.idSemestre
-                AND s.idSemestre = 1
-                AND c.idClasse = '$idClasse'
-                ")
-            ->getResult();
+//            ->createQuery("SELECT m.nomModule, m.idModule
+//                FROM AppBundle:Module m, AppBundle:Pendant pe, AppBundle:Classe c, AppBundle:Semestre s
+//                WHERE c.idClasse = pe.idClasse
+//                AND pe.idModule = m.idModule
+//                AND pe.idSemestre = s.idSemestre
+//                AND s.idSemestre = 1
+//                AND c.idClasse = '$idClasse'
+//                ")
+//            ->getResult();
+            ->createQueryBuilder()
+            ->select('m.nomModule, m.idModule')
+            ->from('AppBundle:Professeur','p' )
+            ->from('AppBundle:Pendant', 'pe' )
+            ->leftJoin('p.idModule', 'm')
+            ->leftJoin('pe.idModule', 'mp' )
+            ->leftJoin('pe.idClasse', 'c')
+            ->leftJoin('pe.idSemestre', 's' )
+            ->where('p.idProfesseur = :idProf' )
+            ->andWhere('c.idClasse = :idClasse')
+            ->andWhere('pe.idModule = m.idModule')
+            ->andWhere('s.idSemestre = 1')
+            ->distinct()
+            ->setParameter('idProf', $idProf )
+            ->setParameter('idClasse', $idClasse )
+            ->getQuery()->getResult();
     }
 
     public function moyenneClasse($id)

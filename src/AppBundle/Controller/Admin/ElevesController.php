@@ -45,12 +45,15 @@ class ElevesController extends Controller
 
     public function noteAction()
     {
+        $idEleve = $this->getUser()->getIdPersonne();
+        
         // Obtention du manager puis des notes d'un éleve
-        $modules = $this->getManager()->loadAllModules();
+        $modules = $this->getManager()->loadAllModules($idEleve);
 
 
         foreach ($modules as $module){
-            $notes = $this->getManager()->loadAllNotes($module["idModule"]);
+            $notes = $this->getManager()->loadAllNotes($module["idModule"], $idEleve);
+            
             foreach ($notes as $note) {
                 $moduleNote[$module["nomModule"]][] = [$note["note"]];
             }

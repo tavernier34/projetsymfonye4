@@ -10,28 +10,28 @@ namespace AppBundle\Entity;
  */
 class EleveRepository extends \Doctrine\ORM\EntityRepository
 {
-    public function findAllModules()
+    public function findAllModules($idEleve)
     {
         return $this->getEntityManager()
-            ->createQuery('SELECT DISTINCT m.nomModule, m.idModule
+            ->createQuery("SELECT DISTINCT m.nomModule, m.idModule
                 FROM AppBundle:Note n, AppBundle:Module m, AppBundle:Eleve el 
                 WHERE el.idEleve=n.idEleve 
                 AND n.idModule=m.idModule
-                AND el.idEleve = 1
+                AND el.idEleve = '$idEleve'
                 
-                ')
+                ")
             ->getResult();
     }
 
-    public function findAllNotes($id)
+    public function findAllNotes($idModule, $idEleve)
     {
         return $this->getEntityManager()
             ->createQuery("SELECT n.note
                 FROM AppBundle:Note n, AppBundle:Module m, AppBundle:Eleve el 
                 WHERE el.idEleve=n.idEleve 
                 AND n.idModule=m.idModule
-                AND el.idEleve = 1
-                AND m.idModule = '$id'
+                AND el.idEleve = '$idEleve'
+                AND m.idModule = '$idModule'
                 
                 ")
             ->getResult();
