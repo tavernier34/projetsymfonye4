@@ -26,16 +26,16 @@ class EleveManager
         $this->repository = $em->getRepository('AppBundle:Eleve');
     }
 
-    public function loadAllModules()
+    public function loadAllModules($idEleve)
     {
-        $modules = $this->repository->findAllModules();
+        $modules = $this->repository->findAllModules($idEleve);
 
         return $modules;
     }
     
-    public function loadAllNotes($id)
+    public function loadAllNotes($idModule, $idEleve)
     {
-        $notes = $this->repository->findAllNotes($id);
+        $notes = $this->repository->findAllNotes($idModule, $idEleve);
 
         return $notes;
     }

@@ -84,7 +84,7 @@ class Professeur
      * @var \Doctrine\Common\Collections\Collection
      *
      * @ORM\ManyToMany(targetEntity="Module", inversedBy="idProfesseur")
-     * @ORM\JoinTable(name="enseigne",
+     * @ORM\JoinTable(name="ENSEIGNE",
      *   joinColumns={
      *     @ORM\JoinColumn(name="ID_PROFESSEUR", referencedColumnName="ID_PROFESSEUR")
      *   },

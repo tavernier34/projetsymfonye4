@@ -9,6 +9,7 @@
 {% endblock %}
 
 {% block body %}
+    <a href="{{ path ('logout') }}">Déconnexion</a>
     <form action="{% if note.idNote %}{{ path('admin_professeur_editnote', {'id':note.idnote}) }}{% else %}{{ path('admin_professeur_addnote') }}{% endif %}" method="post" {{ form_enctype(form) }}>
         {{ form_errors(form) }}
 

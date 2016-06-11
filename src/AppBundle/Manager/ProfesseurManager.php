@@ -26,10 +26,10 @@ class ProfesseurManager
         $this->repository = $em->getRepository('AppBundle:Professeur');
     }
 
-    public function loadAllClasses()
+    public function loadAllClasses($idProf)
     {
         
-            $classes = $this->repository->findAllClasses();
+            $classes = $this->repository->findAllClasses($idProf);
 
         return $classes;
     }
@@ -95,9 +95,9 @@ class ProfesseurManager
         return $libelleClasse;
     }
     
-    public function loadAllModules($idClasse)
+    public function loadAllModules($idClasse, $idProf)
     {
-        $modules = $this->repository->findAllModules($idClasse);
+        $modules = $this->repository->findAllModules($idClasse, $idProf);
         
         return $modules;
     }
