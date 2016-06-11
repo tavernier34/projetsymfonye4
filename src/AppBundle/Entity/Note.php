@@ -31,9 +31,9 @@ class Note
     /**
      * @var integer
      *
-     * @ORM\Column(name="VALEURMAX", type="integer", nullable=true)
+     * @ORM\Column(name="COEF", type="integer", nullable=true)
      */
-    private $valeurmax;
+    private $coef;
 
     /**
      * @var \DateTime
@@ -99,27 +99,27 @@ class Note
     }
 
     /**
-     * Set valeurmax
+     * Set coef
      *
-     * @param integer $valeurmax
+     * @param integer $coef
      *
      * @return Note
      */
-    public function setValeurmax($valeurmax)
+    public function setCoef($coef)
     {
-        $this->valeurmax = $valeurmax;
+        $this->coef = $coef;
 
         return $this;
     }
 
     /**
-     * Get valeurmax
+     * Get coef
      *
      * @return integer
      */
-    public function getValeurmax()
+    public function getCoef()
     {
-        return $this->valeurmax;
+        return $this->coef;
     }
 
     /**

@@ -23,7 +23,7 @@ class ProfesseurType extends AbstractType
         $builder
             ->add('note', 'text', array('label' => 'NOTE: '))
             ->add('dateNote', 'date', array('label' => 'DATE'))
-        ->add('valeurmax', 'text', array('label' => 'Valeur Max'));
+        ->add('coef', 'text', array('label' => 'COEFFICIENT'));
 
         // Ajout des champs liés à une table
 

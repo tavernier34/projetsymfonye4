@@ -60,7 +60,7 @@ class NotesController extends Controller
                 // Validation de l'entité
                 $manager->saveNote($note);
 
-                // Redirection vers la page de modification d'un film
+                // Redirection vers la page de modification d'une note
                 return new RedirectResponse($this->generateUrl('admin_professeur_homepage',
                     array('id' => $note->getIdNote())));
 
@@ -81,10 +81,10 @@ class NotesController extends Controller
         // Recherche du film (charger le film + id)
         if (!$note = $manager->loadNote($id))
         {
-            throw new NotFoundHttpException("Le film n'existe pas");
+            throw new NotFoundHttpException("La note n'existe pas");
         }
 
-        // Création du modèle du formulaire qui est lié à l'entité film
+        // Création du modèle du formulaire qui est lié à l'entité note
         $model = $this->get('form.factory')->create(new ProfesseurType(), $note);
 
         // Obtention de l'objet "request"
@@ -98,8 +98,8 @@ class NotesController extends Controller
             {
                 // Validation de l'entité
                 $manager->saveNote($note);
-                //return new RedirectResponse($this->generateUrl('admin_film_homepage', array()));
-                return new RedirectResponse($this->generateUrl('admin_professeur_listeEleve',
+                //return new RedirectResponse($this->generateUrl('admin_professeur_homepage', array()));
+                return new RedirectResponse($this->generateUrl('admin_professeur_homepage',
                     array('id' => $note->getIdnote())));
             }
         }
