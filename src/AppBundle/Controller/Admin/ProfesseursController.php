@@ -98,7 +98,7 @@ class ProfesseursController extends Controller
 
         foreach ($eleves as $eleve){
             $moyennes = $this->getManager()->loadMoyennesClassesModulesEleves($idClasse, $idModule, $eleve["idEleve"]);
-var_dump($moyennes);
+
             foreach ($moyennes as $moyenne) {
                 $moduleNote[$eleve["idEleve"]]["nom"] = $eleve["nom"];
                 $moduleNote[$eleve["idEleve"]]["prenom"] = $eleve["prenom"];

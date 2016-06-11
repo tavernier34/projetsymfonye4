@@ -54,7 +54,7 @@ class ElevesController extends Controller
             
             $moyennes = $this->getManager()->loadMoyenneModule($module["idModule"], $idEleve);
             foreach ($moyennes as $moyenne) {
-                $moduleNote[$module["nomModule"]]["moyenne"] = $moyenne;
+                $moduleNote[$module["nomModule"]]["moyenne"] = $moyenne["moyenne"];
             }
 
 //            $moyennesMin = $this->getManager()->loadMoyenneModuleMin($module["idModule"], $classe['idClasse']);

@@ -66,7 +66,7 @@ class EleveRepository extends \Doctrine\ORM\EntityRepository
     public function moyenneModule($idModule, $idEleve)
     {
         return $this->getEntityManager()
-            ->createQuery("select avg(n.note) as moyenne
+            ->createQuery("select sum(n.note * n.coef) / sum(n.coef) as moyenne
                 from AppBundle:Classe c, AppBundle:Note n, AppBundle:Module m, AppBundle:Pendant pe, AppBundle:Eleve e 
                 where c.idClasse = pe.idClasse
                 and pe.idModule = m.idModule
@@ -74,7 +74,7 @@ class EleveRepository extends \Doctrine\ORM\EntityRepository
                 AND n.idEleve = e.idEleve
                 and e.idEleve = '$idEleve'
                 and m.idModule = '$idModule'")
-            ->getSingleResult();
+            ->getResult();
     }
 
 //    public function moyenneModuleMin($idModule, $idClasse)
@@ -108,14 +108,13 @@ class EleveRepository extends \Doctrine\ORM\EntityRepository
     public function moyenneGen($idEleve)
     {
         return $this->getEntityManager()
-            ->createQuery("select avg(n.note) as moyenne
-                from AppBundle:Eleve el, AppBundle:Note n, AppBundle:Classe c, AppBundle:Module m, AppBundle:Pendant pe
-                where c.idClasse=pe.idClasse
+            ->createQuery("select sum(n.note * n.coef) / sum(n.coef) as moyenne
+                from AppBundle:Classe c, AppBundle:Note n, AppBundle:Module m, AppBundle:Pendant pe, AppBundle:Eleve e 
+                where c.idClasse = pe.idClasse
                 and pe.idModule = m.idModule
                 and m.idModule = n.idModule
-                AND n.idEleve = el.idEleve
-                AND c.idClasse = el.idClasse
-                and el.idEleve = '$idEleve'")
+                AND n.idEleve = e.idEleve
+                and e.idEleve = '$idEleve'")
             ->getSingleResult();
     }
 }

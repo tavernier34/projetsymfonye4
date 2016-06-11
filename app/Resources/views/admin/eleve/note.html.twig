@@ -40,7 +40,14 @@
                     </td>
                     <td>
                         <span {% if value.moyenne  < 10 %} style = "color : red"
-                            {% else %} style = "color : green" {{ value.moyenne }} {% endif %}> {{ value.moyenne|number_format(2,',') }} </span>
+                            {% else %} style = "color : green" {{ value.moyenne }} {% endif %}>
+                            {% if value.moyenne == null %}
+
+                            {% else  %}
+                                {{ value.moyenne|number_format(2,',') }}
+                            {% endif %}
+
+                        </span>
                     </td>
                 </tr>
                 {% endfor %}
@@ -48,7 +55,10 @@
                     <td style="font-weight: bold">Moyenne Générale</td>
                     <td style="background-color: black"></td>
                     <td><span {% if moyenneGen.moyenne  < 10 %} style = "color : red"
-                            {% else %} style = "color : green" {{ moyenneGen.moyenne }} {% endif %}>{{ moyenneGen.moyenne }}</span></td>
+                            {% else %} style = "color : green" {{ moyenneGen.moyenne }} {% endif %}>
+                            {{ moyenneGen.moyenne }}
+                        </span>
+                    </td>
                 </tr>
             </tbody>
         </table>
