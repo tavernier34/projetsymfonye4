@@ -36,7 +36,7 @@
                             {% for unite, unite in value %}
                     <td {% if unite  < "10" %} style = "color : red"
                     {% else %} style = "color : green" {{ unite }} {% endif %}>
-                                {{ unite }}
+                                {{ unite|number_format(2,',') }}
                             {% endfor %}
                         {% endfor %}
                     </td>

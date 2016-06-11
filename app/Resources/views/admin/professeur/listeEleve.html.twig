@@ -49,7 +49,7 @@
                     </td>
                     <td {% if value.moyenne  < 10 %} style = "color : red"
                     {% else %} style = "color : green" {{ value.moyenne }} {% endif %}>
-                        {{ value.moyenne }}
+                        {{ value.moyenne|number_format(2,',') }}
                     </td>
 
                 </tr>

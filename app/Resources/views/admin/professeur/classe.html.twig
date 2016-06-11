@@ -37,7 +37,7 @@
                             {% for unit in unite %}
                 <td {% if unit  < 10 %} style = "color : red"
                 {% else %} style = "color : green" {{ unit }} {% endif %}>
-                                {{ unit }}
+                                {{ unit|number_format(2,',') }}
                             {% endfor %}
                         {% endfor %}
                     {% endfor %}

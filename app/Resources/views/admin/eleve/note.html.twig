@@ -40,7 +40,7 @@
                     </td>
                     <td>
                         <span {% if value.moyenne  < 10 %} style = "color : red"
-                            {% else %} style = "color : green" {{ value.moyenne }} {% endif %}> {{ value.moyenne }} </span>
+                            {% else %} style = "color : green" {{ value.moyenne }} {% endif %}> {{ value.moyenne|number_format(2,',') }} </span>
                     </td>
                 </tr>
                 {% endfor %}
