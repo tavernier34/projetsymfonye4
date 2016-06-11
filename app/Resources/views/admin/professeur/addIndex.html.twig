@@ -8,16 +8,13 @@
 
     <ol class="breadcrumb">
         <li><a href="{{ path('admin_professeur_homepage') }}">Accueil</a></li>
-        <li><a href="{{ path('admin_professeur_listeClasse') }}">Classe</a></li>
-        <li><a href="{{ path('admin_professeur_listeMatiere', { "idClasse" : idClasse  }) }}">Matières</a></li>
-        <li><a href="{{ path('admin_professeur_listeEleve', { "idModule": idModule, "idClasse" : idClasse  }) }}">Notes</a></li>
-        <li class="active">Modifier la note</li>
+        <li class="active">Ajouter une note</li>
     </ol>
 
 <h1>Ajouter une Note</h1>
 <div id="formulaire">
 
-    <form action="{{ path('admin_professeur_addnote', { 'idClasse': idClasse, 'idModule': idModule }) }}" method="post" {{ form_enctype(form) }}>
+    <form action="{{ path('admin_professeur_addnoteindex') }}" method="post" {{ form_enctype(form) }}>
         {{ form_errors(form) }}
 
         {{ form_row(form.note) }}

@@ -18,7 +18,7 @@
         </ol>
 
         <h2>Liste des élèves de : {{ nomModule["nomModule"] }} en {{ libelleClasse["libelleClasse"] }}  </h2>
-        <a class="btn btn-success" href="{{ path('admin_professeur_addnote') }}">Ajouter une note</a>
+        <a class="btn btn-success" href="{{ path('admin_professeur_addnote', { 'idClasse': idClasse, 'idModule': idModule }) }}">Ajouter une note</a>
         <br/><br/>
 
         <table class="table" border="">

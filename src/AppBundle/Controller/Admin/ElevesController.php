@@ -46,27 +46,29 @@ class ElevesController extends Controller
     public function noteAction()
     {
         $idEleve = $this->getUser()->getIdPersonne();
+//        $classe = $this->getManager()->loadClasseEleve($idEleve);
         
         // Obtention du manager puis des notes d'un éleve
         $modules = $this->getManager()->loadAllModules($idEleve);
-
-
-
-
         foreach ($modules as $module){
-            $moyenne = $this->getManager()->loadMoyenneModule($module["idModule"], $idEleve);
-            var_dump($moyenne);
-            $moduleNote[$module["nomModule"]]["moyenne"] = [$moyenne['moyenne']];
             
+            $moyennes = $this->getManager()->loadMoyenneModule($module["idModule"], $idEleve);
+            foreach ($moyennes as $moyenne) {
+                $moduleNote[$module["nomModule"]]["moyenne"] = $moyenne;
+            }
+
+//            $moyennesMin = $this->getManager()->loadMoyenneModuleMin($module["idModule"], $classe['idClasse']);
+
             $notes = $this->getManager()->loadAllNotes($module["idModule"], $idEleve);
-    
             foreach ($notes as $note) {
-                var_dump($note);
+
                 $moduleNote[$module["nomModule"]][] = [$note["note"]];
             }
         }
 
-        return $this->render('admin/eleve/note.html.twig',array("arrayNotes" => $moduleNote));
+        $moyenneGen = $this->getManager()->loadMoyenneGen($idEleve);
+
+        return $this->render('admin/eleve/note.html.twig',array("arrayNotes" => $moduleNote, "moyenneGen" => $moyenneGen));
     }
 
     /**

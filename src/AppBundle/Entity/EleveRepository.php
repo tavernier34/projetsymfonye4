@@ -74,6 +74,48 @@ class EleveRepository extends \Doctrine\ORM\EntityRepository
                 AND n.idEleve = e.idEleve
                 and e.idEleve = '$idEleve'
                 and m.idModule = '$idModule'")
-            ->getResult();
+            ->getSingleResult();
+    }
+
+//    public function moyenneModuleMin($idModule, $idClasse)
+//    {
+//        return $this->getEntityManager()
+//            ->createQuery("select min(moyenne)
+//                from(
+//                    select e.nom, avg(n.note) as moyenne
+//                    from AppBundle:Classe c, AppBundle:Note n, AppBundle:Module m, AppBundle:Pendant pe, AppBundle:Eleve e 
+//                    where c.idClasse = pe.idClasse
+//                    and pe.idModule = m.idModule
+//                    and m.idModule = n.idModule
+//                    AND n.idEleve = e.idEleve
+//                    AND c.idClasse = e.idClasse
+//                    and m.idModule = '$idModule'
+//                    AND c.idClasse = '$idClasse') as moyenne
+//                    ")
+//            ->getSingleResult();
+//    }
+    
+    public function findClasseEleve($idEleve)
+    {
+        return $this->getEntityManager()
+            ->createQuery("select c.idClasse
+            from AppBundle:Eleve el, AppBundle:Classe c
+            WHERE el.idClasse = c.idClasse
+            AND el.idEleve='$idEleve'")
+            ->getSingleResult();
+    }
+
+    public function moyenneGen($idEleve)
+    {
+        return $this->getEntityManager()
+            ->createQuery("select avg(n.note) as moyenne
+                from AppBundle:Eleve el, AppBundle:Note n, AppBundle:Classe c, AppBundle:Module m, AppBundle:Pendant pe
+                where c.idClasse=pe.idClasse
+                and pe.idModule = m.idModule
+                and m.idModule = n.idModule
+                AND n.idEleve = el.idEleve
+                AND c.idClasse = el.idClasse
+                and el.idEleve = '$idEleve'")
+            ->getSingleResult();
     }
 }

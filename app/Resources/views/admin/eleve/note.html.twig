@@ -12,33 +12,44 @@
         <h2>Mes notes et moyennes </h2>
 
         <table class="table" border="">
+            <ol class="breadcrumb">
+                <li><a href="{{ path('admin_eleve_homepage') }}">Accueil</a></li>
+                <li class="active">Suivi Scolaire</li>
+            </ol>
             <thead class="thead-inverse">
             <th>Matiere</th>
             <th>Note</th>
             <th>Moyenne</th>
-            <th>Moyenne Min.</th>
-            <th>Moyenne Classe</th>
-            <th>Moyenne Max.</th>
+            {#<th>Moyenne Min.</th>#}
+            {#<th>Moyenne Classe</th>#}
+            {#<th>Moyenne Max.</th>#}
 
             </thead>
 
             <tbody>
-        {#J'arrive à afficher chaque module mais pas leur notes respectives
-        cf. noteAction dans le ElevesController qui appelle les différentes fonctions loadxxx du EleveManager qui exécute les requêtes du EleveRepository
-        #}
-            {% for key, value in arrayNotes %}
-            <tr>
-                <td>{{ key }}</td>
-                <td>
-                    {% for note in value %}
-                        {% for unite in note %}
-                            {{ unite }} &nbsp;&nbsp;&nbsp;
+                {% for key, value in arrayNotes %}
+                <tr>
+                    <td>{{ key }}</td>
+                    <td>
+                        {% for notes, note in value %}
+                            {% for unite in note %}
+                                <span {% if unite  < 10 %} style = "color : red"
+                                {% else %} style = "color : green" {{ unite }} {% endif %}> {{ unite }} </span> &nbsp;&nbsp;&nbsp;
+                            {% endfor %}
                         {% endfor %}
-                    {% endfor %}
-                </td>
-            </tr>
-            {% endfor %}
-{{ dump (arrayNotes) }};
+                    </td>
+                    <td>
+                        <span {% if value.moyenne  < 10 %} style = "color : red"
+                            {% else %} style = "color : green" {{ value.moyenne }} {% endif %}> {{ value.moyenne }} </span>
+                    </td>
+                </tr>
+                {% endfor %}
+                <tr>
+                    <td style="font-weight: bold">Moyenne Générale</td>
+                    <td style="background-color: black"></td>
+                    <td><span {% if moyenneGen.moyenne  < 10 %} style = "color : red"
+                            {% else %} style = "color : green" {{ moyenneGen.moyenne }} {% endif %}>{{ moyenneGen.moyenne }}</span></td>
+                </tr>
             </tbody>
         </table>
     </div>

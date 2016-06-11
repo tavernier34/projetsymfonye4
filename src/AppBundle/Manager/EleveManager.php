@@ -39,6 +39,28 @@ class EleveManager
 
         return $moyenne;
     }
+
+//    public function loadMoyenneModuleMin($idModule, $idClasse)
+//    {
+//        $avgMin = $this->repository->moyenneModuleMin($idModule, $idClasse);
+//
+//        return $avgMin;
+//    }
+//    
+//    public function loadClasseEleve($idEleve)
+//    {
+//        $classe = $this->repository->findClasseEleve($idEleve);
+//        
+//        return $classe;
+//    }
+//    
+
+    public function loadMoyenneGen($idEleve)
+    {
+        $moyenne = $this->repository->moyenneGen($idEleve);
+        
+        return $moyenne;
+    }
     
     public function loadAllNotes($idModule, $idEleve)
     {

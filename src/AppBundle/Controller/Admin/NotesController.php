@@ -36,9 +36,10 @@ class NotesController extends Controller
 
 
     /**
-     * @Route("/admin/professeur/add", name="admin_professeur_addnote")
+     * @Route("/admin/professeur/add/{idClasse}/{idModule}", name="admin_professeur_addnote")
+     * @Route("/admin/professeur/addIndex", name="admin_professeur_addnoteindex")
      */
-    public function addAction()
+    public function addAction($idClasse, $idModule)
     {
         // Création d'une nouvelle note
         $note = new Note();
@@ -68,8 +69,46 @@ class NotesController extends Controller
         }
 
         // On n'utilise pas le template par défaut mais le template de l'action 'edit'
-        return $this->render('admin/professeur/add.html.twig', array('form' => $model->createView(), 'note' => $note));
+        return $this->render('admin/professeur/add.html.twig', array('form' => $model->createView(), 'note' => $note, 'idClasse' => $idClasse, 'idModule' => $idModule));
+        return $this->render('admin/professeur/addIndex.html.twig', array('form' => $model->createView(), 'note' => $note));
     }
+
+    /**
+     * @Route("/admin/professeur/addIndex", name="admin_professeur_addnoteindex")
+     */
+    public function addIndexAction()
+    {
+        // Création d'une nouvelle note
+        $note = new Note();
+
+        // Création du modèle du formulaire qui est lié à l'entité d'une note
+        $model = $this->get('form.factory')->create(new NoteType(), $note);
+
+        // Obtention de l'objet "request"
+        $request = $this->get('request');
+        // Si l'utilisateur soumet le formulaire
+        if ($request->getMethod() == 'POST')
+        {
+            // Attachement du modèle à l'objet "request"
+            $model->handleRequest($request);
+            if ($model->isValid())
+            {
+                // Obtention du manager
+                $manager = $this->getManager();
+                // Validation de l'entité
+                $manager->saveNote($note);
+
+                // Redirection vers la page de modification d'une note
+                return new RedirectResponse($this->generateUrl('admin_professeur_homepage',
+                    array('id' => $note->getIdNote())));
+
+            }
+        }
+
+        // On n'utilise pas le template par défaut mais le template de l'action 'edit'
+       return $this->render('admin/professeur/addIndex.html.twig', array('form' => $model->createView(), 'note' => $note));
+    }
+    
 
     /**
      * @Route("/admin/professeur/editNote/{id}/{idClasse}/{idModule}", name="admin_professeur_editnote")
