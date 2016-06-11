@@ -18,7 +18,7 @@
         <table border="">
             <thead>
             <th>Matière</th>
-            <th>Moyenne de la classe</th>
+            {#<th>Moyenne de la classe</th>#}
             <th>Voir mes élèves</th>
 
             </thead>
@@ -32,14 +32,14 @@
                         {% endfor %}
                     </td>
 
-                        {% for lib, value in libelle %}
-                            {% for unite, unite in value %}
-                    <td {% if unite  < "10" %} style = "color : red"
-                    {% else %} style = "color : green" {{ unite }} {% endif %}>
-                                {{ unite|number_format(2,',') }}
-                            {% endfor %}
-                        {% endfor %}
-                    </td>
+                        {#{% for lib, value in libelle %}#}
+                            {#{% for unite, unite in value %}#}
+                    {#<td {% if unite  < "10" %} style = "color : red"#}
+                    {#{% else %} style = "color : green" {{ unite }} {% endif %}>#}
+                                {#{{ unite|number_format(2,',') }}#}
+                            {#{% endfor %}#}
+                        {#{% endfor %}#}
+                    {#</td>#}
                     <td>
                         {% for value in libelle %}
                             {% for unite in value %}

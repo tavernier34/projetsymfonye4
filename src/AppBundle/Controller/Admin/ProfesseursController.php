@@ -77,6 +77,7 @@ class ProfesseursController extends Controller
 
         foreach ($modules as $module){
             $moyennes = $this->getManager()->loadMoyennesClassesModules($idClasse, $module["idModule"]);
+            var_dump($moyennes);
             foreach ($moyennes as $moyenne) {
                 $moyenneModule[$module["idModule"]][$module["nomModule"]][$moyenne["moyenne"]][]=[$idClasse];
             }
@@ -97,15 +98,15 @@ class ProfesseursController extends Controller
 
         foreach ($eleves as $eleve){
             $moyennes = $this->getManager()->loadMoyennesClassesModulesEleves($idClasse, $idModule, $eleve["idEleve"]);
+var_dump($moyennes);
             foreach ($moyennes as $moyenne) {
                 $moduleNote[$eleve["idEleve"]]["nom"] = $eleve["nom"];
                 $moduleNote[$eleve["idEleve"]]["prenom"] = $eleve["prenom"];
                 $moduleNote[$eleve["idEleve"]]["moyenne"] = $moyenne["moyenne"];
                 $notes = $this->getManager()->loadAllNotes($idClasse, $idModule, $eleve["idEleve"]);
+
                 foreach ($notes as $note) {
-//                    $moduleNote[$eleve["idEleve"]][$note["idNote"]][] = $note["dateNote"];
-//                    $moduleNote[$eleve["idEleve"]]["date"] = $note["dateNote"];
-//                    $moduleNote[$eleve["idEleve"]][$note["idNote"]][] = $note["note"];
+
                     $moduleNote[$eleve["idEleve"]]["notes"][$note["idNote"]]["date"] = $note["dateNote"];
                     $moduleNote[$eleve["idEleve"]]["notes"][$note["idNote"]]["note"] = $note["note"];
                     

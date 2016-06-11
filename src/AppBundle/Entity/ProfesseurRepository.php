@@ -100,7 +100,7 @@ class ProfesseurRepository extends \Doctrine\ORM\EntityRepository
     public function moyenneClasseModuleEleve($idClasse, $idModule, $idEleve)
     {
         return $this->getEntityManager()
-            ->createQuery("select avg(n.note) as moyenne
+            ->createQuery("select e.nom, sum(n.note * n.coef) / sum(n.coef) as moyenne
                 from AppBundle:Classe c, AppBundle:Note n, AppBundle:Module m, AppBundle:Pendant pe, AppBundle:Eleve e 
                 where c.idClasse = pe.idClasse
                 and pe.idModule = m.idModule
@@ -108,7 +108,8 @@ class ProfesseurRepository extends \Doctrine\ORM\EntityRepository
                 AND n.idEleve = e.idEleve
                 and e.idEleve = '$idEleve'
                 and c.idClasse = '$idClasse'
-                and m.idModule = '$idModule'")
+                and m.idModule = '$idModule'
+                GROUP BY m.nomModule")
             ->getResult();
     }
 
@@ -141,9 +142,7 @@ class ProfesseurRepository extends \Doctrine\ORM\EntityRepository
                 AND s.idSemestre = 1 
                 AND c.idClasse = '$idClasse'                
                 AND el.idEleve = '$idEleve'
-                AND m.idModule = '$idModule'
-                
-                
+                AND m.idModule = '$idModule'                            
                 ")
             ->getResult();
     }
