@@ -114,9 +114,10 @@ class ProfesseursController extends Controller
         }
         
         $nomModule = $this->getManager()->loadNomModule($idModule);
+        $nomClasse = $this->getManager()->loadNomClasse($idClasse);
         
 
-        return $this->render('admin/professeur/listeEleve.html.twig', array("arrayEleves" => $moduleNote, "idClasse" => $idClasse, "nomModule" => $nomModule));
+        return $this->render('admin/professeur/listeEleve.html.twig', array("arrayEleves" => $moduleNote, "idClasse" => $idClasse, "nomModule" => $nomModule, "idModule" => $idModule, "libelleClasse" => $nomClasse));
         
         
     }

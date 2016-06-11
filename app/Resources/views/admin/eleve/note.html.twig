@@ -2,19 +2,23 @@
 
 
 {% block title %}
-    Liste des employées
+    Liste des notes
 {% endblock %}
 
 {% block body %}
-    <a href="{{ path ('logout') }}">Déconnexion</a>
+    <p>{{ app.user.username }} - <a id="deconnexion" style="text-decoration: underline;" href="{{ path ('logout') }}"  > Déconnexion</a> </p>
 
     <div class="tableaunote">
-        <h1>Liste des notes de : </h1>
+        <h2>Mes notes et moyennes </h2>
 
         <table class="table" border="">
             <thead class="thead-inverse">
             <th>Matiere</th>
             <th>Note</th>
+            <th>Moyenne</th>
+            <th>Moyenne Min.</th>
+            <th>Moyenne Classe</th>
+            <th>Moyenne Max.</th>
 
             </thead>
 
@@ -34,7 +38,7 @@
                 </td>
             </tr>
             {% endfor %}
-
+{{ dump (arrayNotes) }};
             </tbody>
         </table>
     </div>

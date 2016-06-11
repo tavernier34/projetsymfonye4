@@ -2,15 +2,26 @@
 
 {% block title %}
     {% if note.idNote %}
-        {{ parent() }} - Modification d'une note{{ note.idNote }}
+        Modification d'une note
     {% else %}
-        {{ parent() }} - Ajout d'une note
+        Ajout d'une note
     {% endif %}
 {% endblock %}
 
 {% block body %}
-    <a href="{{ path ('logout') }}">Déconnexion</a>
-    <form action="{% if note.idNote %}{{ path('admin_professeur_editnote', {'id':note.idnote}) }}{% else %}{{ path('admin_professeur_addnote') }}{% endif %}" method="post" {{ form_enctype(form) }}>
+    <p>{{ app.user.username }} - <a id="deconnexion" style="text-decoration: underline;" href="{{ path ('logout') }}"  > Déconnexion</a> </p>
+
+    <ol class="breadcrumb">
+        <li><a href="{{ path('admin_professeur_homepage') }}">Accueil</a></li>
+        <li><a href="{{ path('admin_professeur_listeClasse') }}">Classe</a></li>
+        <li><a href="{{ path('admin_professeur_listeMatiere', { "idClasse" : idClasse  }) }}">Matières</a></li>
+        <li><a href="{{ path('admin_professeur_listeEleve', { "idModule": idModule, "idClasse" : idClasse  }) }}">Notes</a></li>
+        <li class="active">Modifier la note</li>
+    </ol>
+
+    <h2>Modifier la note : {{ note.note }} de {{ note.idEleve.prenom }} {{ note.idEleve.nom }} en {{ note.idModule.nomModule }}</h2>
+
+    <form action="{% if note.idNote %}{{ path('admin_professeur_editnote', {'id':note.idnote, 'idClasse':idClasse, 'idModule':idModule}) }}{% else %}{{ path('admin_professeur_addnote') }}{% endif %}" method="post" {{ form_enctype(form) }}>
         {{ form_errors(form) }}
 
         {{ form_row(form.note) }}
@@ -20,7 +31,6 @@
         {{ form_row(form.dateNote) }}
         {{ form_rest(form) }}
 
-        {{ dump (form) }}
         <input type="submit" id="submit" value="{% if note.idNote %}{{ 'Valider'}}{% else %}{{ 'Ajouter'}}{% endif %}" name="submit" />
     </form>
 {% endblock %}

@@ -4,7 +4,7 @@
     Ajouter une Note
 {% endblock %}
 {% block body %}
-    <a href="{{ path ('logout') }}">Déconnexion</a>
+    <p>{{ app.user.username }} - <a id="deconnexion" style="text-decoration: underline;" href="{{ path ('logout') }}"  > Déconnexion</a> </p>
 
 <h1>Ajouter une Note</h1>
 <div id="formulaire">

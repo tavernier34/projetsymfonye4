@@ -32,6 +32,13 @@ class EleveManager
 
         return $modules;
     }
+
+    public function loadMoyenneModule($idModule, $idEleve)
+    {
+        $moyenne = $this->repository->moyenneModule($idModule, $idEleve);
+
+        return $moyenne;
+    }
     
     public function loadAllNotes($idModule, $idEleve)
     {

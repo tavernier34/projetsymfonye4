@@ -72,10 +72,11 @@ class NotesController extends Controller
     }
 
     /**
-     * @Route("/admin/professeur/editNote/{id}", name="admin_professeur_editnote")
+     * @Route("/admin/professeur/editNote/{id}/{idClasse}/{idModule}", name="admin_professeur_editnote")
      */
-    public function editAction($id)
+    public function editAction($id, $idClasse, $idModule)
     {
+       
         // Obtention du manager (appel au repository)
         $manager = $this->getManager();
         // Recherche du film (charger le film + id)
@@ -103,8 +104,8 @@ class NotesController extends Controller
                     array('id' => $note->getIdnote())));
             }
         }
-
-        return $this->render('admin/professeur/editNote.html.twig', array('form' => $model->createView(), 'note' => $note));
+        
+        return $this->render('admin/professeur/editNote.html.twig', array('form' => $model->createView(), 'note' => $note, 'idClasse' => $idClasse, 'idModule' => $idModule));
     }
 
 

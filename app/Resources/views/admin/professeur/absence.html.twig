@@ -6,9 +6,9 @@
 {% endblock %}
 
 {% block body %}
-    <a href="{{ path ('logout') }}">Déconnexion</a>
+    <p>{{ app.user.username }} - <a id="deconnexion" style="text-decoration: underline;" href="{{ path ('logout') }}"  > Déconnexion</a> </p>
     <div class="tableau">
-        <h1>Liste des absences de : </h1>
+        <h1>Mes absences </h1>
 
         <table class="table" border="">
             <thead class="thead-inverse">

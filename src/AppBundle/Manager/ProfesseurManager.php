@@ -88,6 +88,14 @@ class ProfesseurManager
         return $nomModule;
     }
 
+    public function loadNomClasse($idClasse)
+    {
+        $nomModule = $this->repository->getNomClasse($idClasse);
+
+        return $nomModule;
+    }
+    
+
     public function loadLibelleClasse($idClasse)
     {
         $libelleClasse = $this->repository->getLibelleClasse($idClasse);

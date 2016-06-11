@@ -31,7 +31,7 @@ class ProfesseurType extends AbstractType
             'class' => 'AppBundle:Module',
             'required' =>true,
             'label' => "MODULE: ",
-            'property' => 'typemodule',
+            'property' => 'nomModule',
         ));
 
         $builder->add('idEleve', 'entity', array(

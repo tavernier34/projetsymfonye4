@@ -6,9 +6,9 @@
 {% endblock %}
 
 {% block body %}
-
+    <p>{{ app.user.username }} - <a id="deconnexion" style="text-decoration: underline;" href="{{ path ('logout') }}"  > Déconnexion</a> </p>
     <div class="tableau">
-        <a href="{{ path ('logout') }}">Déconnexion</a>
+
         <ol class="breadcrumb">
             <li><a href="{{ path('admin_professeur_homepage') }}">Accueil</a></li>
             <li><a href="{{ path('admin_professeur_listeClasse') }}">Classe</a></li>
@@ -17,8 +17,9 @@
             <li class="active">Notes</li>
         </ol>
 
-        <h1>Liste des élèves de : {{ nomModule["nomModule"] }}  </h1>
+        <h2>Liste des élèves de : {{ nomModule["nomModule"] }} en {{ libelleClasse["libelleClasse"] }}  </h2>
         <a class="btn btn-success" href="{{ path('admin_professeur_addnote') }}">Ajouter une note</a>
+        <br/><br/>
 
         <table class="table" border="">
             <thead class="thead-inverse">
@@ -42,7 +43,7 @@
                         {% for index, valeur in value %}
                             {% for id, info in valeur %}
                             <a {% if info.note  < 10 %} style = "color : red"
-                                 {% else %} style = "color : green" {{ info.note }} {% endif %}  class="glyphicon glyphicon-pencil" href="{{ path('admin_professeur_editnote', { 'id': id }) }}">{{ info.note }} </a> ({{ info.date | date("d/m/Y") }}) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                 {% else %} style = "color : green" {{ info.note }} {% endif %}  class="glyphicon glyphicon-pencil" href="{{ path('admin_professeur_editnote', { 'id': id, 'idClasse': idClasse, 'idModule': idModule }) }}">{{ info.note }} </a> ({{ info.date | date("d/m/Y") }}) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             {% endfor %}
                         {% endfor %}
                     </td>

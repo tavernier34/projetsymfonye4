@@ -14,9 +14,10 @@ class EleveRepository extends \Doctrine\ORM\EntityRepository
     {
         return $this->getEntityManager()
             ->createQuery("SELECT DISTINCT m.nomModule, m.idModule
-                FROM AppBundle:Note n, AppBundle:Module m, AppBundle:Eleve el 
-                WHERE el.idEleve=n.idEleve 
-                AND n.idModule=m.idModule
+                FROM AppBundle:Classe c, AppBundle:Module m, AppBundle:Eleve el, AppBundle:Pendant pe  
+                WHERE el.idClasse=c.idClasse 
+                AND c.idClasse=pe.idClasse
+                AND pe.idModule = m.idModule
                 AND el.idEleve = '$idEleve'
                 
                 ")
@@ -27,12 +28,16 @@ class EleveRepository extends \Doctrine\ORM\EntityRepository
     {
         return $this->getEntityManager()
             ->createQuery("SELECT n.note
-                FROM AppBundle:Note n, AppBundle:Module m, AppBundle:Eleve el 
-                WHERE el.idEleve=n.idEleve 
-                AND n.idModule=m.idModule
+                FROM AppBundle:Note n, AppBundle:Module m, AppBundle:Eleve el, AppBundle:Pendant pe, AppBundle:Classe c, AppBundle:Semestre s  
+                WHERE n.idModule=m.idModule
+                AND m.idModule=pe.idModule
+                AND pe.idClasse=c.idClasse
+                AND pe.idSemestre=s.idSemestre
+                AND c.idClasse=el.idClasse
+                AND n.idEleve=el.idEleve
+                AND s.idSemestre = 1
                 AND el.idEleve = '$idEleve'
-                AND m.idModule = '$idModule'
-                
+                AND m.idModule = '$idModule'              
                 ")
             ->getResult();
     }
@@ -49,12 +54,26 @@ class EleveRepository extends \Doctrine\ORM\EntityRepository
             ->getResult();
     }
     
-   public function findAllEleves()
+    public function findAllEleves()
     {
         return $this->getEntityManager()
             ->createQuery('SELECT e.nom, e.prenom
                 FROM AppBundle:Eleve e
                 ')
+            ->getResult();
+    }
+
+    public function moyenneModule($idModule, $idEleve)
+    {
+        return $this->getEntityManager()
+            ->createQuery("select avg(n.note) as moyenne
+                from AppBundle:Classe c, AppBundle:Note n, AppBundle:Module m, AppBundle:Pendant pe, AppBundle:Eleve e 
+                where c.idClasse = pe.idClasse
+                and pe.idModule = m.idModule
+                and m.idModule = n.idModule
+                AND n.idEleve = e.idEleve
+                and e.idEleve = '$idEleve'
+                and m.idModule = '$idModule'")
             ->getResult();
     }
 }

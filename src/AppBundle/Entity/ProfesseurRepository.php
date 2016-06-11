@@ -147,13 +147,23 @@ class ProfesseurRepository extends \Doctrine\ORM\EntityRepository
                 ")
             ->getResult();
     }
-    
+
     public function getNomModule($idModule)
     {
         return $this->getEntityManager()
             ->createQuery("SELECT m.nomModule
             FROM AppBundle:Module m
             WHERE m.idModule = '$idModule'
+            ")
+            ->getSingleResult();
+    }
+
+    public function getNomClasse($idClasse)
+    {
+        return $this->getEntityManager()
+            ->createQuery("SELECT c.libelleClasse
+            FROM AppBundle:Classe c
+            WHERE c.idClasse = '$idClasse'
             ")
             ->getSingleResult();
     }

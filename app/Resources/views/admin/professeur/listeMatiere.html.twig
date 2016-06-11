@@ -2,7 +2,7 @@
 
 
 {% block title %}
-    Liste des employées
+    Liste des matières
 {% endblock %}
 
 {% block body %}
@@ -13,7 +13,7 @@
             <li><a href="{{ path('admin_professeur_listeClasse') }}">Classe</a></li>
             <li class="active">Matières</li>
         </ol>
-        <h1>Liste des matières de : {{ libelleClasse["libelleClasse"] }} </h1>
+        <h1>Classe de : {{ libelleClasse["libelleClasse"] }} </h1>
 
         <table border="">
             <thead>

@@ -51,14 +51,20 @@ class ElevesController extends Controller
         $modules = $this->getManager()->loadAllModules($idEleve);
 
 
+
+
         foreach ($modules as $module){
-            $notes = $this->getManager()->loadAllNotes($module["idModule"], $idEleve);
+            $moyenne = $this->getManager()->loadMoyenneModule($module["idModule"], $idEleve);
+            var_dump($moyenne);
+            $moduleNote[$module["nomModule"]]["moyenne"] = [$moyenne['moyenne']];
             
+            $notes = $this->getManager()->loadAllNotes($module["idModule"], $idEleve);
+    
             foreach ($notes as $note) {
+                var_dump($note);
                 $moduleNote[$module["nomModule"]][] = [$note["note"]];
             }
         }
-
 
         return $this->render('admin/eleve/note.html.twig',array("arrayNotes" => $moduleNote));
     }
