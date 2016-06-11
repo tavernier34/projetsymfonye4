@@ -37,15 +37,15 @@ class EleveRepository extends \Doctrine\ORM\EntityRepository
             ->getResult();
     }
     
-    public function findAllAbsences()
+    public function findAllAbsences($idEleve)
     {
         return $this->getEntityManager()
-            ->createQuery('SELECT a.justificatif, a.motif
+            ->createQuery("SELECT a.justificatif, a.motif
                 FROM AppBundle:Absence a, AppBundle:Personne p 
                 WHERE a.idPersonne=p.idPersonne 
-                AND p.idPersonne = 1
+                AND p.idPersonne = '$idEleve'
                 
-                ')
+                ")
             ->getResult();
     }
     

@@ -127,10 +127,11 @@ class ProfesseursController extends Controller
 
     public function absenceAction()
     {
+        $idProf = $this->getUser()->getIdPersonne();
         // Obtention du manager puis des absences d'un professeur
-        $absences = $this->getManager()->loadAllAbsences();
+        $absences = $this->getManager()->loadAllAbsences($idProf);
 
-        return $this->render('admin/absence.html.twig', array("arrayAbsences" => $absences));
+        return $this->render('admin/professeur/absence.html.twig', array("arrayAbsences" => $absences));
     }
 
    

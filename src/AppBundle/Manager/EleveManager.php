@@ -40,10 +40,10 @@ class EleveManager
         return $notes;
     }
 
-    public function loadAllAbsences()
+    public function loadAllAbsences($idEleve)
     {
 
-        $absences = $this->repository->findAllAbsences();
+        $absences = $this->repository->findAllAbsences($idEleve);
 
         return $absences;
     }

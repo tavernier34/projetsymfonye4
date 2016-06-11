@@ -110,10 +110,10 @@ class ProfesseurManager
         return $moyenne;
     }
 
-    public function loadAllAbsences()
+    public function loadAllAbsences($idProf)
     {
 
-        $absences = $this->repository->findAllAbsences();
+        $absences = $this->repository->findAllAbsences($idProf);
 
         return $absences;
     }

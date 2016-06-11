@@ -185,14 +185,15 @@ class ProfesseurRepository extends \Doctrine\ORM\EntityRepository
     }
 
 
-    public function findAllAbsences()
+    public function findAllAbsences($idProf)
     {
         return $this->getEntityManager()
-            ->createQuery('SELECT a.justificatif, a.motif
+            ->createQuery("SELECT a.justificatif, a.motif
                 FROM AppBundle:Absence a, AppBundle:Personne p 
                 WHERE a.idPersonne=p.idPersonne 
+                AND p.idPersonne = '$idProf'
                 
-                ')
+                ")
             ->getResult();
     }
 }

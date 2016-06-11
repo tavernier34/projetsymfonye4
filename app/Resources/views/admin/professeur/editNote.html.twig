@@ -19,6 +19,8 @@
         {{ form_row(form.coef) }}
         {{ form_row(form.dateNote) }}
         {{ form_rest(form) }}
+
+        {{ dump (form) }}
         <input type="submit" id="submit" value="{% if note.idNote %}{{ 'Valider'}}{% else %}{{ 'Ajouter'}}{% endif %}" name="submit" />
     </form>
 {% endblock %}

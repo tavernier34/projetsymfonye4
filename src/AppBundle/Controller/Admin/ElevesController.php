@@ -69,8 +69,9 @@ class ElevesController extends Controller
 
     public function absenceAction()
     {
+        $idEleve = $this->getUser()->getIdPersonne();
         // Obtention du manager puis des absences d'un éleve
-        $absences = $this->getManager()->loadAllAbsences();
+        $absences = $this->getManager()->loadAllAbsences($idEleve);
 
         return $this->render('admin/eleve/absence.html.twig', array("arrayAbsences" => $absences));
     }
