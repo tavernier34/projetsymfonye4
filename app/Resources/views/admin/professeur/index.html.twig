@@ -8,7 +8,7 @@
 {% block body %}
 
     <p>{{ app.user.username }} - <a id="deconnexion" style="text-decoration: underline;" href="{{ path ('logout') }}"  > Déconnexion</a> </p>
-    <h1 id="titreIndex">Vous pouvez consulter :</h1>
+    <h2 id="titreIndex">Vous pouvez consulter :</h2>
 
     <div class="col-sm-6 col-md-3 outer-div left-div" >
         <div class="btn btn-info thumbnail inner-div" id="suivi" ><a href="{{ path('admin_professeur_listeClasse') }}"> Vos classes </a></div>

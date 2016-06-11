@@ -7,8 +7,12 @@
 
 {% block body %}
     <p>{{ app.user.username }} - <a id="deconnexion" style="text-decoration: underline;" href="{{ path ('logout') }}"  > Déconnexion</a> </p>
+    <ol class="breadcrumb">
+        <li><a href="{{ path('admin_professeur_homepage') }}">Accueil</a></li>
+        <li class="active">Absence(s)</li>
+    </ol>
     <div class="tableau">
-        <h1>Mes absences </h1>
+        <h2>Mes absences </h2>
 
         <table class="table" border="">
             <thead class="thead-inverse">
