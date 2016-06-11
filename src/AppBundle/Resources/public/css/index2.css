@@ -93,3 +93,26 @@ thead{
     font-size: 25px;
     text-align: justify;
 }
+
+table .elevenote input{
+    margin-left: 30%;
+    width: 20%;
+}
+table .elevecoef input{
+    margin-left: 3%;
+    width: 20%;
+}
+table .elevecoef label{
+    margin-right: 8.8%;
+}
+
+#note_dateNote{
+    margin-left: 31%;
+    top: 20%;
+}
+table.editab{
+
+    width: 20%;
+}
+
+

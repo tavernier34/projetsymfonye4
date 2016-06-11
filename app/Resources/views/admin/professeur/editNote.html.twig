@@ -19,19 +19,24 @@
         <li class="active">Modifier la note</li>
     </ol>
 
-    <h2>Modifier la note : {{ note.note }} de {{ note.idEleve.prenom }} {{ note.idEleve.nom }} en {{ note.idModule.nomModule }}</h2>
+    <h2>Modifier la note de {{ note.idEleve.prenom }} {{ note.idEleve.nom }} en {{ note.idModule.nomModule }}</h2>
 
     <form action="{% if note.idNote %}{{ path('admin_professeur_editnote', {'id':note.idnote, 'idClasse':idClasse, 'idModule':idModule}) }}{% else %}{{ path('admin_professeur_addnote') }}{% endif %}" method="post" {{ form_enctype(form) }}>
+        <table class="editab" border="">
+            <tr>
         {{ form_errors(form) }}
 
-        {{ form_row(form.note) }}
-        {{ form_row(form.idModule) }}
-        {{ form_row(form.idEleve) }}
-        {{ form_row(form.coef) }}
-        {{ form_row(form.dateNote) }}
+        <td class="elevenote">{{ form_row(form.note) }}</td>
+            </tr>
+            <tr>
+        <td class="elevecoef">{{ form_row(form.coef) }}</td>
+            </tr>
+                <tr>
+                <td>{{ form_row(form.dateNote) }}</td>
+            </tr>
         {{ form_rest(form) }}
-
-        <input type="submit" id="submit" value="{% if note.idNote %}{{ 'Valider'}}{% else %}{{ 'Ajouter'}}{% endif %}" name="submit" />
+</table>
+        <input class="btn-success" type="submit" id="submit" value="{% if note.idNote %}{{ 'Valider'}}{% else %}{{ 'Ajouter'}}{% endif %}" name="submit" />
     </form>
 {% endblock %}
 

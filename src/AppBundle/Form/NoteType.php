@@ -21,8 +21,9 @@ class NoteType extends AbstractType
     {
         // Ajout des champs "classiques"$builder->add('resume', 'text', array('label' => 'Résumé'));
         $builder
-            ->add('note', 'text', array('label' => 'Note'));
-
+            ->add('note', 'text', array('label' => 'Note'))
+            ->add('dateNote', 'date', array('label' => 'DATE'))
+            ->add('coef', 'text', array('label' => 'COEFFICIENT'));
 
         // Ajout des champs liés à une table
 
@@ -30,7 +31,7 @@ class NoteType extends AbstractType
             'class' => 'AppBundle:Module',
             'required' =>true,
             'label' => "Module",
-            'property' => 'typemodule',
+            'property' => 'nomModule',
         ));
 
         $builder->add('idEleve', 'entity', array(

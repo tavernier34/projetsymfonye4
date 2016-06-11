@@ -44,7 +44,7 @@ class NotesController extends Controller
         $note = new Note();
 
         // Création du modèle du formulaire qui est lié à l'entité d'une note
-        $model = $this->get('form.factory')->create(new ProfesseurType(), $note);
+        $model = $this->get('form.factory')->create(new NoteType(), $note);
 
         // Obtention de l'objet "request"
         $request = $this->get('request');
@@ -76,10 +76,10 @@ class NotesController extends Controller
      */
     public function editAction($id, $idClasse, $idModule)
     {
-       
+
         // Obtention du manager (appel au repository)
         $manager = $this->getManager();
-        // Recherche du film (charger le film + id)
+        // Recherche d'une note (charger la note + id)
         if (!$note = $manager->loadNote($id))
         {
             throw new NotFoundHttpException("La note n'existe pas");
@@ -87,7 +87,6 @@ class NotesController extends Controller
 
         // Création du modèle du formulaire qui est lié à l'entité note
         $model = $this->get('form.factory')->create(new ProfesseurType(), $note);
-
         // Obtention de l'objet "request"
         $request = $this->get('request');
         // Si l'utilisateur soumet le formulaire
@@ -100,8 +99,8 @@ class NotesController extends Controller
                 // Validation de l'entité
                 $manager->saveNote($note);
                 //return new RedirectResponse($this->generateUrl('admin_professeur_homepage', array()));
-                return new RedirectResponse($this->generateUrl('admin_professeur_homepage',
-                    array('id' => $note->getIdnote())));
+                return new RedirectResponse($this->generateUrl('admin_professeur_listeEleve',
+                    array('id' => $note->getIdnote(),'idClasse'=>$idClasse,'idModule' => $idModule)));
             }
         }
         
