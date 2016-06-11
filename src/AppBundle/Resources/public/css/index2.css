@@ -1,7 +1,4 @@
-body
-{
-padding-right: 25%;
-}
+
 body a{
     color: black;
     font-size: large;
@@ -70,6 +67,7 @@ th{
     width: 30%;
     height: auto;
     text-align: center;
+    color: white;
 
 }
 
@@ -80,7 +78,7 @@ td.nomeleve{
     text-transform: uppercase;
 }
 thead{
-    background-color: lightgrey;
+    background-color: #0f0f0f ;
 }
 
 #formulaire input{

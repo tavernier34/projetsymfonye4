@@ -43,7 +43,7 @@ class NotesController extends Controller
         // Création d'une nouvelle note
         $note = new Note();
 
-        // Création du modèle du formulaire qui est lié à l'entité film
+        // Création du modèle du formulaire qui est lié à l'entité d'une note
         $model = $this->get('form.factory')->create(new ProfesseurType(), $note);
 
         // Obtention de l'objet "request"
@@ -99,7 +99,7 @@ class NotesController extends Controller
                 // Validation de l'entité
                 $manager->saveNote($note);
                 //return new RedirectResponse($this->generateUrl('admin_film_homepage', array()));
-                return new RedirectResponse($this->generateUrl('admin_professeur_homepage',
+                return new RedirectResponse($this->generateUrl('admin_professeur_listeEleve',
                     array('id' => $note->getIdnote())));
             }
         }
