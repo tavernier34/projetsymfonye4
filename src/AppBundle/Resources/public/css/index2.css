@@ -115,4 +115,22 @@ table.editab{
     width: 20%;
 }
 
+table .addelevecoef input{
+    margin-left: 10%;
+    width: 20%;
+}
+
+table .addelevemodule select{
+    margin-left: 22.5%;
+
+}
+table .addelevenom select{
+    margin-left: 26%;
+
+}
+table .addelevenote input{
+    margin-left: 27.5%;
+    width: 20%;
+}
+
 

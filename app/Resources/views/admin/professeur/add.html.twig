@@ -11,21 +11,34 @@
         <li><a href="{{ path('admin_professeur_listeClasse') }}">Classe</a></li>
         <li><a href="{{ path('admin_professeur_listeMatiere', { "idClasse" : idClasse  }) }}">Matières</a></li>
         <li><a href="{{ path('admin_professeur_listeEleve', { "idModule": idModule, "idClasse" : idClasse  }) }}">Notes</a></li>
-        <li class="active">Modifier la note</li>
+        <li class="active">Ajouter une note</li>
     </ol>
 
 <h2>Ajouter une Note</h2>
 <div id="formulaire">
 
     <form action="{{ path('admin_professeur_addnote', { 'idClasse': idClasse, 'idModule': idModule }) }}" method="post" {{ form_enctype(form) }}>
+        <table class="editab" border="">
+            <tr>
         {{ form_errors(form) }}
-
-        {{ form_row(form.note) }}
-        {{ form_row(form.idModule) }}
-        {{ form_row(form.idEleve) }}
+                <td class="addelevenote">{{ form_row(form.note) }}</td>
+            </tr>
+            <tr>
+        <td class="addelevemodule">{{ form_row(form.idModule) }}</td>
+            </tr>
+            <tr>
+        <td class="addelevenom">{{ form_row(form.idEleve) }}</td>
+            </tr>
+            <tr>
+                <td class="addelevecoef" >{{ form_row(form.coef) }}</td>
+            </tr>
+            <tr>
+                <td>{{ form_row(form.dateNote) }}</td>
+            </tr>
 
 
         {{ form_rest(form) }}
+        </table>
         <input class="btn-success" type="submit" id="submit" value="{{ 'Ajouter'}}" name="submit" />
     </form>
 </div>
