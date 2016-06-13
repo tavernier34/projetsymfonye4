@@ -77,7 +77,7 @@ class ProfesseursController extends Controller
 
         foreach ($modules as $module){
             $moyennes = $this->getManager()->loadMoyennesClassesModules($idClasse, $module["idModule"]);
-            var_dump($moyennes);
+           
             foreach ($moyennes as $moyenne) {
                 $moyenneModule[$module["idModule"]][$module["nomModule"]][$moyenne["moyenne"]][]=[$idClasse];
             }
